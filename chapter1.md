@@ -1,4 +1,4 @@
-简单工厂模式：
+### Chapter 1 代码无错就是优 －－－简单工厂模式
 ```
 <?php 
 
@@ -100,10 +100,12 @@ $operation->setA(2);
 echo $operation->getResult()."\n";
 ```
 
+总结
 
-- 学会通过分封装，继承，多态把程序的藕合度降低
+> 学会通过分封装，继承，多态把程序的藕合度降低
 
-- 复用，不是复制！
+> 复用，不是复制！
 
-- 高内聚，低耦合
+> 高内聚，低耦合
 
+下一章：[商场促销 －－－ 策略模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter1.md)
