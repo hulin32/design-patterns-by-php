@@ -28,7 +28,7 @@ class Operation
 class OperationAdd extends Operation
 {
     public function getResult()
-    {
+    {   
         return $this->a + $this->b;
     }
 }
@@ -94,5 +94,5 @@ class OperationFactory
 
 $operation = OperationFactory::createOperation('+');
 $operation->setA(1);
-$operation->setA(2);
+$operation->setB(2);
 echo $operation->getResult()."\n";
