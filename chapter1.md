@@ -1,5 +1,7 @@
 ### Chapter 1 代码无错就是优 －－－简单工厂模式
-```
+
+1.简单工厂模式
+```php
 <?php 
 
 class Operation
@@ -93,12 +95,14 @@ class OperationFactory
         return $oper;
     }
 }
-
+// 客户端代码
 $operation = OperationFactory::createOperation('+');
 $operation->setA(1);
 $operation->setA(2);
 echo $operation->getResult()."\n";
 ```
+
+
 
 总结
 
@@ -108,4 +112,4 @@ echo $operation->getResult()."\n";
 
 > 高内聚，低耦合
 
-下一章：[商场促销 －－－ 策略模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter1.md)
+下一章：[商场促销 －－－ 策略模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter2.md)

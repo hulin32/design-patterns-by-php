@@ -96,8 +96,3 @@ $operation = OperationFactory::createOperation('+');
 $operation->setA(1);
 $operation->setA(2);
 echo $operation->getResult()."\n";
-
-
-
-
-
