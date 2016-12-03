@@ -14,3 +14,10 @@
 - [第四章 研求职两不误 －－－ 开发－封闭原则](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter4.md)
 
 - [第五章 会修电脑不会修收音机？ －－－ 依赖倒转原则](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter5.md)
+
+- [第六章 穿什么有这么重要吗 －－－ 装饰模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter6.md)
+
+- [第七章 为别人做嫁衣 －－－ 代理模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter7.md)
+
+- [第八章 雷锋依然在人间 －－－ 工厂方法模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter8.md)
+
