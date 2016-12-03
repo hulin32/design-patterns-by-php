@@ -1,6 +1,3 @@
-### 第九章 简历复印 －－－ 原型模式
-
-```php
 <?php 
 
 class Company
@@ -69,17 +66,9 @@ $resume2->setWorkExperience("1998-2010","xx 公司");
 $resume->display();
 $resume2->display();
 
-```
-
-总结：
-
-> ***原型模式***，用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象。
-
-> 原型模式其实就是从一个对象再创建另外一个可定制的对象，而且不需要知道任何创建的细节。
-
-> 一般在初始化的信息不发生变化的情况下，克隆是最好的办法。既隐藏了对象创建的细节，又对性能是大大的提高。
 
 
-上一章：[第八章 雷锋依然在人间 －－－ 工厂方法模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter8.md)
 
-下一章：[第十章 考题抄错会做也白搭 －－－ 模版方法模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter10.md)
+
+
+
