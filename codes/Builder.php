@@ -1,6 +1,3 @@
-### 第十三章 好菜每回味不同 －－－ 建造者模式
-
-```php
 <?php 
 
 //画小人
@@ -110,18 +107,25 @@ $thinDirector->CreatePerson();
 echo "\n胖的:\n";
 $fatDirector = new PersonDirector(new PersonFatBuilder());
 $fatDirector->CreatePerson();
-```
 
-总结：
 
-> ***建造者模式***，将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示。
 
-> 如果我们用了建造者模式，那么用户只需要指定需要建造的类型就可以得到他们，而具体建造的过程和细节就不需要知道了。
 
-> 主要用于创建一些复杂的对象，这些对象内部构建间的建造顺序通常是稳定的，但对象内部的构建通畅面临着复杂的变化。
 
-> 建造者模式是在当创建复杂对象的算法应该独立于改对象的组成部分以及它们的装配方式时适用的模式。
 
-上一章：[第十二章 牛市股票还会亏钱 －－－ 外观模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter12.md)
 
-下一章：[第十四章 老板回来，我不知道 －－－ 观察者模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter14.md)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
