@@ -1,4 +1,4 @@
-### Chapter 1 代码无错就是优 －－－简单工厂模式
+### 第一章 代码无错就是优 －－－简单工厂模式
 
 1.简单工厂模式
 ```php
@@ -112,4 +112,4 @@ echo $operation->getResult()."\n";
 
 > 高内聚，低耦合
 
-下一章：[商场促销 －－－ 策略模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter2.md)
+下一章：[第二章 商场促销 －－－ 策略模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter2.md)
