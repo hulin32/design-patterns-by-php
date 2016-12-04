@@ -1,6 +1,3 @@
-### 第十五章 就不能不换DB吗？ －－－ 抽象工厂模式
-
-```php
 <?php 
 
 /////////version1
@@ -193,20 +190,4 @@ $department = new Department();
 $id = DataBase::CreateDepartment();
 $id->insert($department);
 $id->getDepartment(1);
-```
 
-> ***抽象工厂模式***，提供一个创建一系列相关或相互依赖对象的接口，而无需指定他们的具体类。
-
-> 菜鸟程序员遇到问题，只会用时间来摆平。
-
-> 工厂方法模式是定义一个用于创建对象的接口，让子类决定实例化哪一个类。
-
-> 抽象工厂模式的好处便是易于交换产品系列，由于具体工厂类，在一个应用中只需要在初始化的时候出现一次，这就使得改变一个应用的具体工厂变得非常容易，它只是需要改变具体工厂即可使用不同的产品配置。它让具体的创建实例过程与客户端分离，客户端是通过它们的抽象接口操作实例，产品的具体类名也被具体工厂的实现分离，不会出现在客户端代码中。
-
-> 编程是门艺术，大批量的改动是非常丑陋的做法。
-
-> 所有在用简单工厂的地方，都可以考虑用反射技术来去除switch或if，解除分支判断代码的耦合。
-
-上一章：[第十四章 老板回来，我不知道 －－－ 观察者模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter14.md)
-
-下一章：[第十六章 无尽加班何时休 －－－ 状态模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter16.md) 
