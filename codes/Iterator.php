@@ -1,6 +1,3 @@
-### 第二十章 想走？可以！先买票 －－－ 迭代器模式
-
-```php
 <?php 
 
 //迭代器抽象类
@@ -54,7 +51,6 @@ class ConcreteIterator extends IteratorClass
     }
 }
 
-//这个类的代码感觉不符合书上的写法，但我感觉书上的不对，可能我知识面太单薄，没读懂，可自行参阅原著😊。
 class ConcreteAggregate extends Aggregate
 {
     private $items = [];
@@ -96,19 +92,20 @@ while (!$i->isDone())
     echo $i->currentItem()." 请买票\n";
     $i->next();
 }
-```
-
-总结：
-
-> 当你需要对聚集有多种方式遍历时，可以考虑用迭代器模式。
-
-> 当你需要访问一个聚集对象，而且不管这些对象是什么都需要遍历的时候，你就应该考虑用迭代器模式。
-
-> 为遍历不同的聚集结构提供如开始、下一个、是否结束、当前哪一项等统一的接口。
-
-> 迭代器模式就是分离了集合对象的遍历行为，抽象出一个迭代器类来负责，这样既可以做到不暴露集合内部的结构，又可让外部代码透明地访问集合内部的数据。
 
 
-上一章：[第十九章 分公司 ＝ 一部分  －－－ 组合模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter19.md)
 
-下一章：[第二十一章 有些类也需要计划生育 －－－ 单例模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter21.md) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
