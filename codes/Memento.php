@@ -1,6 +1,3 @@
-### 第十八章 如果再回到从前 －－－ 备忘录模式
-
-```php
 <?php
 
 //发起人类
@@ -88,19 +85,3 @@ $o->show();
 // 恢复属性
 $o->setMemento($c->getMemento());
 $o->show();
-```
-
-总结：
-
-> ***备忘录模式***，在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之前保存这个状态。这样以后就可将该对象恢复到原先保存的状态。
-
-> 代码无措未必优
-
-> 如果在某个系统中使用命令模式时，需要实现命令的撤销功能，那么命令模式可以使用备忘录模式来存储可撤销操作的状态。
-
-> 使用备忘录可以把复杂的对象内部信息对其他的对象屏蔽起来。
-
-
-上一章：[第十七章 在NBA我需要翻译 －－－ 适配器模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter17.md)
-
-下一章：[第十九章 分公司 ＝ 一部分  －－－ 组合模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter19.md) 
