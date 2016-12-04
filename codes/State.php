@@ -1,6 +1,62 @@
-### 第十六章 无尽加班何时休 －－－ 状态模式
+<?php 
 
-```php
+// class Context
+// {
+//     private $state;
+
+//     function __construct(State $state)
+//     {
+//         $this->state = $state;
+//     }
+
+//     public function setState(State $state)
+//     {
+//         $this->state = $state;
+//     }
+
+//     public function getState(State $state)
+//     {
+//         return $this->state;
+//     }
+
+//     public function request()
+//     {
+//         $this->state->Handle($this);
+//     }
+// }
+
+
+// abstract class State
+// {
+//     abstract public function Handle(Context $context);
+// }
+
+// class ConcreteStateA extends State
+// {
+//     public function Handle(Context $context)
+//     {
+//         echo "ConcreteStateA Handler\n";
+//         $context->setState(new ConcreteStateB());
+//     }
+// }
+
+// class ConcreteStateB extends State
+// {
+//     public function Handle(Context $context)
+//     {   
+//         echo "ConcreteStateB Handler\n";
+//         $context->setState(new ConcreteStateA());
+//     }
+// }
+
+
+// //客户端代码
+// $context = new Context(new ConcreteStateA());
+// $context->request();
+// $context->request();
+// $context->request();
+// $context->request();
+
 //工作状态
 abstract class State
 {
@@ -144,27 +200,15 @@ $emergencyProjects->WriteProgram();
 $emergencyProjects->setHour(22);
 $emergencyProjects->WriteProgram();
 
-```
-
-总结：
-
-> ***状态模式***，当一个对象的内在状态改变时允许改变其行为，这个对象看起来像是改变了其类。
-
-> 面向对象设计其实就是希望做到代码的责任分解。
-
-> 状态模式主要解决的当控制一个对象状态转换的条件表达式过于复杂时的情况。把状态的判断逻辑转移到表示不同状态的一系列类当中，可以把复杂的判断逻辑简单化。
-
-> 将于特定状态相关的行为局部化，并且将不同状态的行为分割开来。
-
-> 将特定的状态相关的行为都放入一个对象中，由于所有与状态相关的代码都存在于某个ConcreteState中，所以通过定义的子类可以很容易地增加新的状态和转换。
-
-> 消除了庞大的条件分支语句。
-
-> 状态模式通过把各种状态转移逻辑分布到State的子类之间，来减少项目之间的依赖。
-
-> 当一个对象的行为取决于它的状态，并且它必须在运行时刻根据状态改变它的行为时，就可以考虑使用状态模式了。 
 
 
-上一章：[第十五章 就不能不换DB吗？ －－－ 抽象工厂模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter15.md)
 
-下一章：[第十七章 在NBA我需要翻译 －－－ 适配器模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter17.md) 
+
+
+
+
+
+
+
+
+
