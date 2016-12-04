@@ -21,3 +21,19 @@
 
 - [第八章 雷锋依然在人间 －－－ 工厂方法模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter8.md)
 
+- [第九章 简历复印 －－－ 原型模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter9md)
+
+- [第十章 考题抄错会做也白搭 －－－ 模版方法模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter10.md)
+
+- [第十一章 无熟人难办事 －－－ 迪米特法则](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter11.md)
+
+- [第十二章 牛市股票还会亏钱 －－－ 外观模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter12.md)
+
+- [第十三章 好菜每回味不同 －－－ 建造者模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter13.md)
+
+- [第十四章 老板回来，我不知道 －－－ 观察者模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter14.md)
+
+- [第十五章 就不能不换DB吗？ －－－ 抽象工厂模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter15.md)
+
+
+
