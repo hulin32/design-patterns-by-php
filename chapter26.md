@@ -88,4 +88,4 @@ echo "网站分类总数:".$f->getWebSiteCount()."\n";
 
 上一章：[第二十五章 世界需要和平 －－－ 中介者模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter25.md)
 
-下一章：[第二十七章 ](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter27.md)
+下一章：[第二十七章 其实你不懂老板的心 －－－ 解释器模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter27.md)
