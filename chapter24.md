@@ -67,4 +67,4 @@ foreach ($requests as $value) {
 
 上一章：[第二十三章 烤羊肉串引来的思考 －－－ 命令模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter23.md)
 
-下一章：[第二十五章 ](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter25.md)
+下一章：[第二十五章 世界需要和平 －－－ 中介者模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter25.md)
