@@ -99,4 +99,4 @@ $c2->send('no, do you want to invite me to dinner?');
 
 上一章：[第二十四章 加薪非要老总批 －－－ 职责链模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter24.md)
 
-下一章：[第二十六章 ](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter26.md)
+下一章：[第二十六章 项目多也别傻做 －－－ 享元模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter26.md)
