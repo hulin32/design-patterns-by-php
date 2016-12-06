@@ -3,15 +3,17 @@
 // abstract class Handler
 // {
 //     protected $successor;
-
+    
+//        设置继承者
 //     public function setSuccessor(Handler $successor)
 //     {
 //         $this->successor = $successor;
 //     }
-
+//        处理请求的抽象方法
 //     abstract function handleRequest(int $request);
 // }
-
+    
+//     如果可以处理请求，就处理之，否者转发给它的后继者
 // class ConcreteHandler1 extends Handler
 // {
 //     public function handleRequest(int $request)
@@ -20,6 +22,7 @@
 //         {
 //             echo "ConcreteHandler1 handle it\n";
 //         } else if ($this->successor != null) {
+//              // 转移
 //             $this->successor->handleRequest($request);
 //         }
 //     }
@@ -41,8 +44,10 @@
 // // client
 // $h1 = new ConcreteHandler1();
 // $h2 = new ConcreteHandler2();
+// 设置职责链上下家
 // $h1->setSuccessor($h2);
 // $requests = [1,5,7,16,25];
+// 循环给最小处理者提交请求，不同的数额，由不同权限处理者处理
 // foreach ($requests as $value) {
 //     $h1->handleRequest($value);
 // }
@@ -107,12 +112,12 @@ class CommonManager extends Manager
 {
     public function requestApplications(Request $request)
     {
-        if ($request->requestType === 'dayoff' && $request->number <=2)
+        if ($request->getRequestType() === 'dayoff' && $request->getNumber() <=2)
         {
             echo $this->name.":".$request->getRequestContent()." times:".$request->getNumber()."\n";
         } else {
             if ($this->superior != null) {
-                $superior->requestApplications($request);
+                $this->superior->requestApplications($request);
             }
         }
     }
@@ -122,12 +127,12 @@ class MajaorManager extends Manager
 {
     public function requestApplications(Request $request)
     {
-        if ($request->requestType === 'dayoff' && $request->number <=5)
+        if ($request->getRequestType() === 'dayoff' && $request->getNumber() <=5)
         {
             echo $this->name.":".$request->getRequestContent()." times:".$request->getNumber()."\n";
         } else {
             if ($this->superior != null) {
-                $superior->requestApplications($request);
+                $this->superior->requestApplications($request);
             }
         }
     }
@@ -137,13 +142,56 @@ class GeneralManager extends Manager
 {
     public function requestApplications(Request $request)
     {
-        if ($request->requestType === 'dayoff')
+        if ($request->getRequestType() === 'dayoff')
         {
             echo $this->name.":".$request->getRequestContent()." times:".$request->getNumber()."\n";
-        } else if ($request->requestType === 'salary' && $request->number <= 500){
+        } else if ($request->getRequestType() === 'salary' && $request->getNumber() <= 500){
             echo $this->name.":".$request->getRequestContent()." money:".$request->getNumber()."\n";
         } else {
             echo "no way!\n";
         }
     }
 }
+
+$jinli = new CommonManager('jinli');
+$zongjian = new MajaorManager('zongjian');
+$zhongjinli = new GeneralManager('zhongjinli');
+
+$jinli->setSuperior($zongjian);
+$zongjian->setSuperior($zhongjinli);
+
+$request = new Request();
+$request->setRequestType('dayoff');
+$request->setRequestContent('xiaocai dayoff');
+$request->setNumber(1);
+$jinli->requestApplications($request);
+
+$request2 = new Request();
+$request2->setRequestType('dayoff');
+$request2->setRequestContent('xiaocai dayoff');
+$request2->setNumber(4);
+$jinli->requestApplications($request2);
+
+$request3 = new Request();
+$request3->setRequestType('salary');
+$request3->setRequestContent('xiaocai add salary');
+$request3->setNumber(500);
+$jinli->requestApplications($request3);
+
+$request4 = new Request();
+$request4->setRequestType('salary');
+$request4->setRequestContent('xiaocai add salary');
+$request4->setNumber(10000);
+$jinli->requestApplications($request4);
+
+
+
+
+
+
+
+
+
+
+
+
