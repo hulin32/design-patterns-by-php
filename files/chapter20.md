@@ -109,6 +109,6 @@ while (!$i->isDone())
 > 迭代器模式就是分离了集合对象的遍历行为，抽象出一个迭代器类来负责，这样既可以做到不暴露集合内部的结构，又可让外部代码透明地访问集合内部的数据。
 
 
-上一章：[第十九章 分公司 ＝ 一部分  －－－ 组合模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter19.md)
+上一章：[第十九章 分公司 ＝ 一部分  －－－ 组合模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter19.md)
 
-下一章：[第二十一章 有些类也需要计划生育 －－－ 单例模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter21.md) 
+下一章：[第二十一章 有些类也需要计划生育 －－－ 单例模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter21.md) 

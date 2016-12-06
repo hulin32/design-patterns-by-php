@@ -110,6 +110,6 @@ $root->display(1);
 
 > 组合模式可以让客户一致地使用组合结构和单个对象。 
 
-上一章：[第十八章 如果再回到从前 －－－ 备忘录模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter18.md)
+上一章：[第十八章 如果再回到从前 －－－ 备忘录模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter18.md)
 
-下一章：[第二十章 想走？可以！先买票 －－－ 迭代器模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter20.md) 
+下一章：[第二十章 想走？可以！先买票 －－－ 迭代器模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter20.md) 

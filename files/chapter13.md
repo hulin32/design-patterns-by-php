@@ -122,6 +122,6 @@ $fatDirector->CreatePerson();
 
 > 建造者模式是在当创建复杂对象的算法应该独立于改对象的组成部分以及它们的装配方式时适用的模式。
 
-上一章：[第十二章 牛市股票还会亏钱 －－－ 外观模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter12.md)
+上一章：[第十二章 牛市股票还会亏钱 －－－ 外观模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter12.md)
 
-下一章：[第十四章 老板回来，我不知道 －－－ 观察者模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter14.md)
+下一章：[第十四章 老板回来，我不知道 －－－ 观察者模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter14.md)

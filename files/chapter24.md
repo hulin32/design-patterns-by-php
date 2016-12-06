@@ -65,6 +65,6 @@ foreach ($requests as $value) {
 
 > 一个请求极有可能到了链的末端都得不到处理，或者因为没有正确配置而得不到处理。
 
-上一章：[第二十三章 烤羊肉串引来的思考 －－－ 命令模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter23.md)
+上一章：[第二十三章 烤羊肉串引来的思考 －－－ 命令模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter23.md)
 
-下一章：[第二十五章 世界需要和平 －－－ 中介者模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter25.md)
+下一章：[第二十五章 世界需要和平 －－－ 中介者模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter25.md)

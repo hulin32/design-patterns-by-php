@@ -207,6 +207,6 @@ $id->getDepartment(1);
 
 > 所有在用简单工厂的地方，都可以考虑用反射技术来去除switch或if，解除分支判断代码的耦合。
 
-上一章：[第十四章 老板回来，我不知道 －－－ 观察者模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter14.md)
+上一章：[第十四章 老板回来，我不知道 －－－ 观察者模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter14.md)
 
-下一章：[第十六章 无尽加班何时休 －－－ 状态模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter16.md) 
+下一章：[第十六章 无尽加班何时休 －－－ 状态模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter16.md) 

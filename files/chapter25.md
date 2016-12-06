@@ -97,6 +97,6 @@ $c2->send('no, do you want to invite me to dinner?');
 
 > 中介者模式一般应用于一组对象以定义良好但是复杂的方式进行通信的结合，以及想定制一个分布在多个类中的行为，而又不想生成太多的子类的场合。
 
-上一章：[第二十四章 加薪非要老总批 －－－ 职责链模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter24.md)
+上一章：[第二十四章 加薪非要老总批 －－－ 职责链模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter24.md)
 
-下一章：[第二十六章 项目多也别傻做 －－－ 享元模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter26.md)
+下一章：[第二十六章 项目多也别傻做 －－－ 享元模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter26.md)

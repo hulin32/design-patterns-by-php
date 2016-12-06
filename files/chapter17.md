@@ -115,6 +115,6 @@ $translator->Defense();
 
 > 在双方都不太容易修改的时候再使用适配器模式适配。
 
-上一章：[第十六章 无尽加班何时休 －－－ 状态模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter16.md)
+上一章：[第十六章 无尽加班何时休 －－－ 状态模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter16.md)
 
-下一章：[第十八章 如果再回到从前 －－－ 备忘录模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter18.md) 
+下一章：[第十八章 如果再回到从前 －－－ 备忘录模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter18.md) 

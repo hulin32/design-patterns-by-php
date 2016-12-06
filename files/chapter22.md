@@ -95,6 +95,6 @@ $ab->run();
 
 > 只要真正深入地理解了设计原则，很多设计模式其实就是原则的应用而已，或许在不知不觉中就在使用设计模式了。
 
-上一章：[第二十一章 有些类也需要计划生育 －－－ 单例模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter21.md)
+上一章：[第二十一章 有些类也需要计划生育 －－－ 单例模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter21.md)
 
-下一章：[第二十三章 烤羊肉串引来的思考 －－－ 命令模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter23.md) 
+下一章：[第二十三章 烤羊肉串引来的思考 －－－ 命令模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter23.md) 

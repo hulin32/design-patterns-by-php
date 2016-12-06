@@ -105,6 +105,6 @@ $student2->TestQuestion3();
 
 > 当不变的和可变的行为在方法的子类实现中混合在一起的时候，不变的行为就会在子类中重复出现。通过模版方法把这些行为搬移到单一的地方，这样就帮助子类摆脱重复的不变行为的纠缠。
 
-上一章：[第九章 简历复印 －－－ 原型模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter9.md)
+上一章：[第九章 简历复印 －－－ 原型模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter9.md)
 
-下一章：[第十一章 无熟人难办事 －－－ 迪米特法则](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter11.md)
+下一章：[第十一章 无熟人难办事 －－－ 迪米特法则](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter11.md)

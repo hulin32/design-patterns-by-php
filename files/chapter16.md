@@ -165,6 +165,6 @@ $emergencyProjects->WriteProgram();
 > 当一个对象的行为取决于它的状态，并且它必须在运行时刻根据状态改变它的行为时，就可以考虑使用状态模式了。 
 
 
-上一章：[第十五章 就不能不换DB吗？ －－－ 抽象工厂模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter15.md)
+上一章：[第十五章 就不能不换DB吗？ －－－ 抽象工厂模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter15.md)
 
-下一章：[第十七章 在NBA我需要翻译 －－－ 适配器模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter17.md) 
+下一章：[第十七章 在NBA我需要翻译 －－－ 适配器模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter17.md) 

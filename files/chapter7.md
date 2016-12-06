@@ -89,6 +89,6 @@ $proxy->GiveFlowers();
 总结：
 > ***代理模式***，为其他对象提供一种代理以控制对这个对象的访问
 
-上一章：[第六章 穿什么有这么重要吗 －－－ 装饰模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter6.md)
+上一章：[第六章 穿什么有这么重要吗 －－－ 装饰模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter6.md)
 
-下一章：[第八章 雷锋依然在人间 －－－ 工厂方法模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter8.md)
+下一章：[第八章 雷锋依然在人间 －－－ 工厂方法模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter8.md)

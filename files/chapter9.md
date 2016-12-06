@@ -80,6 +80,6 @@ $resume2->display();
 > 一般在初始化的信息不发生变化的情况下，克隆是最好的办法。既隐藏了对象创建的细节，又对性能是大大的提高。
 
 
-上一章：[第八章 雷锋依然在人间 －－－ 工厂方法模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter8.md)
+上一章：[第八章 雷锋依然在人间 －－－ 工厂方法模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter8.md)
 
-下一章：[第十章 考题抄错会做也白搭 －－－ 模版方法模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter10.md)
+下一章：[第十章 考题抄错会做也白搭 －－－ 模版方法模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter10.md)

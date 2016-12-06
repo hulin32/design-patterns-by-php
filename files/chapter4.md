@@ -17,6 +17,6 @@
 
 
 
-上一章：[第三章 拍摄UFO －－－ 单一职责原则](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter3.md)
+上一章：[第三章 拍摄UFO －－－ 单一职责原则](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter3.md)
 
-下一章：[第五章 会修电脑不会修收音机？ －－－ 依赖倒转原则](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter5.md)
+下一章：[第五章 会修电脑不会修收音机？ －－－ 依赖倒转原则](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter5.md)

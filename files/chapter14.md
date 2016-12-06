@@ -82,6 +82,6 @@ $s->notify();
 
 > 观察者模式所做的工作其实就是在接触耦合。让耦合的双方都依赖于抽象，而不是依赖于具体。从而使得各自的变化都不会影响另一边的变化。
 
-上一章：[第十三章 好菜每回味不同 －－－ 建造者模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter13.md)
+上一章：[第十三章 好菜每回味不同 －－－ 建造者模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter13.md)
 
-下一章：[第十五章 就不能不换DB吗？ －－－ 抽象工厂模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter15.md) 
+下一章：[第十五章 就不能不换DB吗？ －－－ 抽象工厂模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter15.md) 

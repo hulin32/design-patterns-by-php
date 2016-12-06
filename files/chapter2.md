@@ -127,6 +127,6 @@ $context->contextInterface();
 
 > 在基本的策略模式中，选择所用具体实现的职责由客户端对象承担，并转给策略模式的Context对象。
 
-上一章：[第一章 代码无错就是优 －－－简单工厂模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter1.md)
+上一章：[第一章 代码无错就是优 －－－简单工厂模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter1.md)
 
-下一章：[第三章 拍摄UFO －－－ 单一职责原则](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter3.md)
+下一章：[第三章 拍摄UFO －－－ 单一职责原则](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter3.md)

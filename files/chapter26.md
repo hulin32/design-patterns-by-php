@@ -86,6 +86,6 @@ echo "网站分类总数:".$f->getWebSiteCount()."\n";
 
 > 如果一个应用程序使用了大量的对象，而大量的这些对象造成了很大的存储开销时就应该考虑使用；还有就是对象的大多数状态可以外部状态，如果删除对象的外部状态，那么可以用相对较少的共享对象取代很多组对象，此时可以考虑使用享原模式。 
 
-上一章：[第二十五章 世界需要和平 －－－ 中介者模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter25.md)
+上一章：[第二十五章 世界需要和平 －－－ 中介者模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter25.md)
 
-下一章：[第二十七章 其实你不懂老板的心 －－－ 解释器模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter27.md)
+下一章：[第二十七章 其实你不懂老板的心 －－－ 解释器模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter27.md)

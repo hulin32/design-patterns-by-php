@@ -38,6 +38,6 @@ if ($s1 == $s2)
 > 单例模式因为Singleton类封装它的唯一实例，这样它可以严格地控制客户怎样访问以及何时访问它。简单地说就是对唯一实例的受控访问。
 
 
-上一章：[第二十章 想走？可以！先买票 －－－ 迭代器模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter20.md)
+上一章：[第二十章 想走？可以！先买票 －－－ 迭代器模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter20.md)
 
-下一章：[第二十二章 手机软件何时统一 －－－ 桥接模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter22.md) 
+下一章：[第二十二章 手机软件何时统一 －－－ 桥接模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter22.md) 

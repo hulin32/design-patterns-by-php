@@ -1,6 +1,6 @@
 ### 第八章 雷锋依然在人间 －－－ 工厂方法模式
 
-根据[第一章](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter1.md)，简单工厂模式（加减乘除）是这样的：
+根据[第一章](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter1.md)，简单工厂模式（加减乘除）是这样的：
 ```php
 class OperationFactory
 {
@@ -85,6 +85,6 @@ echo $operation->getResult()."\n";
 
 > 工厂方法模式实现时，客户端需要决定实例化哪一个工厂来实现运算类，选择判断的问题还是存在的，也就是说，工厂方法把简单工厂的内部逻辑判断移到了客户端代码来进行。你 想要加功能，本来是改工厂类的，而现在是修改客户端。
 
-上一章：[第七章 为别人做嫁衣 －－－ 代理模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter7.md)
+上一章：[第七章 为别人做嫁衣 －－－ 代理模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter7.md)
 
-下一章：[第九章 简历复印 －－－ 原型模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter9.md)
+下一章：[第九章 简历复印 －－－ 原型模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter9.md)

@@ -101,6 +101,6 @@ $o->show();
 > 使用备忘录可以把复杂的对象内部信息对其他的对象屏蔽起来。
 
 
-上一章：[第十七章 在NBA我需要翻译 －－－ 适配器模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter17.md)
+上一章：[第十七章 在NBA我需要翻译 －－－ 适配器模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter17.md)
 
-下一章：[第十九章 分公司 ＝ 一部分  －－－ 组合模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter19.md) 
+下一章：[第十九章 分公司 ＝ 一部分  －－－ 组合模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter19.md) 

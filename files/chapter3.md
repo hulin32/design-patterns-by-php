@@ -10,6 +10,6 @@
 
 > 如果你能够想到多于一个的动机改变一个类，那么这个类就具有多于一个类的职责。
 
-上一章：[第二章 商场促销 －－－ 策略模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter2.md)
+上一章：[第二章 商场促销 －－－ 策略模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter2.md)
 
-下一章：[第四章 考研求职两不误 －－－ 开发－封闭原则](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter4.md)
+下一章：[第四章 考研求职两不误 －－－ 开发－封闭原则](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter4.md)

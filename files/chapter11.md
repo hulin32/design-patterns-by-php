@@ -9,6 +9,6 @@
 > 类之间的耦合越弱，越有利于复用，一个处在弱耦合的类被修改，不会对有关系的类造成波及。
 
 
-上一章：[第十章 考题抄错会做也白搭 －－－ 模版方法模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter10.md)
+上一章：[第十章 考题抄错会做也白搭 －－－ 模版方法模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter10.md)
 
-下一章：[第十二章 牛市股票还会亏钱 －－－ 外观模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter12.md)
+下一章：[第十二章 牛市股票还会亏钱 －－－ 外观模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter12.md)

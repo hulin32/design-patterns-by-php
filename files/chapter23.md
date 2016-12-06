@@ -104,6 +104,6 @@ $girl->notify();
 
 >  敏捷开发原则告诉我们，不要为代码添加基于猜测的、实际不需要的功能。如果不清楚一个系统是否需要命令模式，一般酒不要急着去实现它，事实上，在需要的时候通过重构实现这个模式并不难，只有在真正需要如撤销/恢复操作等功能时，把原来的代码重构为命令模式才有意义。
 
-上一章：[第二十二章 手机软件何时统一 －－－ 桥接模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter22.md)
+上一章：[第二十二章 手机软件何时统一 －－－ 桥接模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter22.md)
 
-下一章：[第二十四章 加薪非要老总批 －－－ 职责链模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/chapter24.md) 
+下一章：[第二十四章 加薪非要老总批 －－－ 职责链模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter24.md) 
