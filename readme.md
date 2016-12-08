@@ -59,5 +59,8 @@
 
 - [第二十七章 其实你不懂老板的心 －－－ 解释器模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter27.md)
 
+- [第二十八章 男人和女人 －－－ 访问者模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter28.md)
+
+- [第二十九章 OOTV杯超级模式大赛 －－－ 模式总结](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter29.md)
 
 
