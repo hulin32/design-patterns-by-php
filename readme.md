@@ -4,6 +4,7 @@
 用自己现在用的语言重新写一遍，文中的代码均可以在终端内执行
 
 相关资源：
+
 [Design Patterns for Humans](https://github.com/kamranahmedse/design-patterns-for-humans)
 ## 目录
 
