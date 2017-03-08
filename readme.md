@@ -6,6 +6,7 @@
 相关资源：
 
 [Design Patterns for Humans](https://github.com/kamranahmedse/design-patterns-for-humans)
+[DesignPatternsPHP](https://github.com/domnikl/DesignPatternsPHP)
 ## 目录
 
 - [第一章 代码无错就是优 －－－简单工厂模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter1.md)
