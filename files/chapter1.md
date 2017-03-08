@@ -66,7 +66,7 @@ class OperationDiv extends Operation
 {
     public function getResult()
     {
-        $this->a / $this->b;
+        return $this->a / $this->b;
     }
 }
 
