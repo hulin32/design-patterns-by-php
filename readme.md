@@ -14,7 +14,7 @@
 
 - [第三章 拍摄UFO －－－ 单一职责原则](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter3.md)
 
-- [第四章 研求职两不误 －－－ 开发－封闭原则](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter4.md)
+- [第四章 研求职两不误 －－－ 开放－封闭原则](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter4.md)
 
 - [第五章 会修电脑不会修收音机？ －－－ 依赖倒转原则](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter5.md)
 

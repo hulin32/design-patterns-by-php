@@ -12,4 +12,4 @@
 
 上一章：[第二章 商场促销 －－－ 策略模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter2.md)
 
-下一章：[第四章 考研求职两不误 －－－ 开发－封闭原则](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter4.md)
+下一章：[第四章 考研求职两不误 －－－ 开放－封闭原则](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter4.md)

@@ -11,6 +11,6 @@
 
 > 依赖倒转其实可以说是面向对象设计的标志，用哪种语言来编写程序不重要，如果编写时考虑的都是如何针对抽象编程而不是针对细节编程，即程序中所有的依赖关系都是终止于抽象类或者接口，那就是面向对象的设计，反之那就是过程化的设计了。
 
-上一章：[第四章 研求职两不误 －－－ 开发－封闭原则](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter4.md)
+上一章：[第四章 研求职两不误 －－－ 开放－封闭原则](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter4.md)
 
 下一章：[第六章 穿什么有这么重要吗 －－－ 装饰模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter6.md)
