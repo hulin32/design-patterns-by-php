@@ -37,7 +37,7 @@ class ConcreteStrategyB extends Strategy
 }
 
 /**
-* 算法a
+* 算法c
 */
 class ConcreteStrategyC extends Strategy
 {
@@ -92,10 +92,10 @@ class Context
             case 'a':
                 $this->strategy = new ConcreteStrategyA();
                 break;
-            case 'a':
+            case 'b':
                $this->strategy = new ConcreteStrategyB();
                 break;
-            case 'a':
+            case 'c':
                 $this->strategy = new ConcreteStrategyC();
                 break;
         }
