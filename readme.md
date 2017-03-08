@@ -6,6 +6,7 @@
 相关资源：
 
 [Design Patterns for Humans](https://github.com/kamranahmedse/design-patterns-for-humans)
+
 [DesignPatternsPHP](https://github.com/domnikl/DesignPatternsPHP)
 ## 目录
 
