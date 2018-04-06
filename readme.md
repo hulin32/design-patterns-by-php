@@ -69,3 +69,6 @@
 - [第二十九章 OOTV杯超级模式大赛 －－－ 模式总结](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter29.md)
 
 
+## License
+
+The MIT License.
