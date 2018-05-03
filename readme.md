@@ -26,7 +26,7 @@
 
 - [第八章 雷锋依然在人间 －－－ 工厂方法模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter8.md)
 
-- [第九章 简历复印 －－－ 原型模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter9md)
+- [第九章 简历复印 －－－ 原型模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter9.md)
 
 - [第十章 考题抄错会做也白搭 －－－ 模版方法模式](https://github.com/flyingalex/design-patterns-by-php/blob/master/files/chapter10.md)
 
