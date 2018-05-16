@@ -4,6 +4,9 @@
 ```php
 <?php 
 
+/**
+ * Operation 
+ */
 class Operation
 {
     protected  $a = 0;
@@ -27,8 +30,8 @@ class Operation
 }
 
 /**
-*  add 
-*/
+ * Add 
+ */
 class OperationAdd extends Operation
 {
     public function getResult()
@@ -38,8 +41,8 @@ class OperationAdd extends Operation
 }
 
 /**
-* Mul
-*/
+ * Mul
+ */
 class OperationMul extends Operation
 {
     public function getResult()
@@ -49,8 +52,8 @@ class OperationMul extends Operation
 }
 
 /**
-* sub
-*/
+ * Sub
+ */
 class OperationSub extends Operation
 {
     public function getResult()
@@ -60,8 +63,8 @@ class OperationSub extends Operation
 }
 
 /**
-* div
-*/
+ * Div
+ */
 class OperationDiv extends Operation
 {
     public function getResult()
@@ -70,10 +73,9 @@ class OperationDiv extends Operation
     }
 }
 
-
 /**
-* operation factory
-*/
+ * Operation Factory
+ */
 class OperationFactory
 {
     public static function createOperation($operation)
@@ -92,14 +94,16 @@ class OperationFactory
                 $oper = new OperationMul();
                 break;
         }
+
         return $oper;
     }
 }
+
 // 客户端代码
 $operation = OperationFactory::createOperation('+');
 $operation->setA(1);
-$operation->seB(2);
-echo $operation->getResult()."\n";
+$operation->setB(2);
+echo $operation->getResult() . PHP_EOL;
 ```
 
 
