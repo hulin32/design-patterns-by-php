@@ -98,7 +98,7 @@ class OperationFactory
 // 客户端代码
 $operation = OperationFactory::createOperation('+');
 $operation->setA(1);
-$operation->seB(2);
+$operation->setB(2);
 echo $operation->getResult()."\n";
 ```
 
