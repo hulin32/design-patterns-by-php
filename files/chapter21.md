@@ -13,7 +13,7 @@ class Singleton
     {
         if (static::$instance == null) 
         {
-            static::$instance == new Singleton();
+            static::$instance = new Singleton();
         }
         return static::$instance;
     }
