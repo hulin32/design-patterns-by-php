@@ -3,6 +3,8 @@
 [《大话设计模式》](https://book.douban.com/subject/2334288/)php版本
 用自己现在用的语言重新写一遍，文中的代码均可以在终端内执行
 
+网页版本gitbook: https://hulin.gitbook.io/design-patterns-by-php/
+
 相关资源：
 
 [Design Patterns for Humans](https://github.com/kamranahmedse/design-patterns-for-humans)
