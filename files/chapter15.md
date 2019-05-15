@@ -51,7 +51,7 @@ class Department
 
     public function getName($name)
     {
-        return $this->id;
+        return $this->name;
     }
 }
 
