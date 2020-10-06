@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="第十六章 无尽加班何时休 －－－ 状态模式 #  //工作状态 abstract class State { abstract public function WriteProgram(Work $w); } class ForenoonState extends State { public function WriteProgram(Work $w) { if ($w-&gt;getHour() &lt; 12) { echo &#34;当前时间：&#34;.$w-&gt;getHour().&#34; 上午工作，精神百倍\n&#34;; } else { $w-&gt;setState(new NoonState()); $w-&gt;WriteProgram(); } } } class NoonState extends State { public function WriteProgram(Work $w) { if ($w-&gt;getHour() &lt; 13) { echo &#34;当前时间：&#34;.$w-&gt;getHour().&#34; 饿了，午饭；犯困，午休\n&#34;; } else { $w-&gt;setState(new AfterNoonState()); $w-&gt;WriteProgram(); } } } class AfterNoonState extends State { public function WriteProgram(Work $w) { if ($w-&gt;getHour() &lt; 17) { echo &#34;当前时间：&#34;.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="第十六章 无尽加班何时休 －－－ 状态模式" />
+<meta property="og:description" content="第十六章 无尽加班何时休 －－－ 状态模式 #  //工作状态 abstract class State { abstract public function WriteProgram(Work $w); } class ForenoonState extends State { public function WriteProgram(Work $w) { if ($w-&gt;getHour() &lt; 12) { echo &#34;当前时间：&#34;.$w-&gt;getHour().&#34; 上午工作，精神百倍\n&#34;; } else { $w-&gt;setState(new NoonState()); $w-&gt;WriteProgram(); } } } class NoonState extends State { public function WriteProgram(Work $w) { if ($w-&gt;getHour() &lt; 13) { echo &#34;当前时间：&#34;.$w-&gt;getHour().&#34; 饿了，午饭；犯困，午休\n&#34;; } else { $w-&gt;setState(new AfterNoonState()); $w-&gt;WriteProgram(); } } } class AfterNoonState extends State { public function WriteProgram(Work $w) { if ($w-&gt;getHour() &lt; 17) { echo &#34;当前时间：&#34;." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/docs/chapter16/" />
+
+<title>第十六章 无尽加班何时休 －－－ 状态模式 | design-patterns-by-php</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.134b70e5316650a530cb42e4e8630b2a01d532bebfc0337028211175336e4806.css" integrity="sha256-E0tw5TFmUKUwy0Lk6GMLKgHVMr6/wDNwKCERdTNuSAY=">
+<script defer src="/en.search.min.9e32b36e065fcc0a76dade0cc47798d1533be64df6d2282bd5b4fb040caf152d.js" integrity="sha256-njKzbgZfzAp22t4MxHeY0VM75k320igr1bT7BAyvFS0="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>design-patterns-by-php</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/%E5%BA%8F%E8%A8%80/" class="">序言</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter1/" class="">第一章 代码无错就是优 －－－ 简单工厂模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter2/" class="">第二章 商场促销 －－－ 策略模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter3/" class="">第三章 拍摄UFO －－－ 单一职责原则</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter4/" class="">第四章 研求职两不误 －－－ 开放－封闭原则</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter5/" class="">第五章 会修电脑不会修收音机？ －－－ 依赖倒转原则</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter6/" class="">第六章 穿什么有这么重要吗 －－－ 装饰模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter7/" class="">第七章 为别人做嫁衣 －－－ 代理模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter8/" class="">第八章 雷锋依然在人间 －－－ 工厂方法模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter9/" class="">第九章 简历复印 －－－ 原型模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter10/" class="">第十章 考题抄错会做也白搭 －－－ 模版方法模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter11/" class="">第十一章 无熟人难办事 －－－ 迪米特法则</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter12/" class="">第十二章 牛市股票还会亏钱 －－－ 外观模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter13/" class="">第十三章 好菜每回味不同 －－－ 建造者模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter14/" class="">第十四章 老板回来，我不知道 －－－ 观察者模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter15/" class="">第十五章 就不能不换DB吗？ －－－ 抽象工厂模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter16/" class=" active">第十六章 无尽加班何时休 －－－ 状态模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter17/" class="">第十七章 在NBA我需要翻译 －－－ 适配器模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter18/" class="">第十八章 如果再回到从前 －－－ 备忘录模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter19/" class="">第十九章 分公司＝一部分  －－－ 组合模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter20/" class="">第二十章 想走？可以！先买票 －－－ 迭代器模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter21/" class="">第二十一章 有些类也需要计划生育 －－－ 单例模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter22/" class="">第二十二章 手机软件何时统 －－－ 桥接模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter23/" class="">第二十三章 烤羊肉串引来的思考 －－－ 命令模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter24/" class="">第二十四章 加薪非要老总批 －－－ 职责链模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter25/" class="">第二十五章 世界需要和平 －－－ 中介者模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter26/" class="">第二十六章 项目多也别傻做 －－－ 享元模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter27/" class="">第二十七章 其实你不懂老板的心 －－－ 解释器模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter28/" class="">第二十八章 男人和女人 －－－ 访问者模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter29/" class="">第二十九章 OOTV杯超级模式大赛 －－－ 模式总结</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>第十六章 无尽加班何时休 －－－ 状态模式</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#第十六章-无尽加班何时休--状态模式">第十六章 无尽加班何时休 －－－ 状态模式</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h3 id="第十六章-无尽加班何时休--状态模式">
+  第十六章 无尽加班何时休 －－－ 状态模式
+  <a class="anchor" href="#%e7%ac%ac%e5%8d%81%e5%85%ad%e7%ab%a0-%e6%97%a0%e5%b0%bd%e5%8a%a0%e7%8f%ad%e4%bd%95%e6%97%b6%e4%bc%91--%e7%8a%b6%e6%80%81%e6%a8%a1%e5%bc%8f">#</a>
+</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">//工作状态
+abstract class State
+{
+    abstract public function WriteProgram(Work $w);
+}
+
+class ForenoonState extends State
+{
+    public function WriteProgram(Work $w)
+    {
+        if ($w-&gt;getHour() &lt; <span style="color:#f92672">12</span><span style="color:#960050;background-color:#1e0010">)</span> <span style="color:#960050;background-color:#1e0010">{</span>
+            <span style="color:#a6e22e">echo</span> <span style="color:#960050;background-color:#1e0010">&#34;</span><span style="color:#a6e22e">当前时间</span><span style="color:#960050;background-color:#1e0010">：&#34;.$</span><span style="color:#a6e22e">w-</span>&gt;getHour().&#34; 上午工作，精神百倍\n&#34;;
+        } else {
+            $w-&gt;setState(new NoonState());
+            $w-&gt;WriteProgram();
+        }
+    }
+}
+
+class NoonState extends State
+{
+    public function WriteProgram(Work $w)
+    {
+        if ($w-&gt;getHour() &lt; <span style="color:#f92672">13</span><span style="color:#960050;background-color:#1e0010">)</span> <span style="color:#960050;background-color:#1e0010">{</span>
+            <span style="color:#a6e22e">echo</span> <span style="color:#960050;background-color:#1e0010">&#34;</span><span style="color:#a6e22e">当前时间</span><span style="color:#960050;background-color:#1e0010">：&#34;.$</span><span style="color:#a6e22e">w-</span>&gt;getHour().&#34; 饿了，午饭；犯困，午休\n&#34;;
+        } else {
+            $w-&gt;setState(new AfterNoonState());
+            $w-&gt;WriteProgram();
+        }
+    }
+}
+
+class AfterNoonState extends State
+{
+    public function WriteProgram(Work $w)
+    {
+        if ($w-&gt;getHour() &lt; <span style="color:#f92672">17</span><span style="color:#960050;background-color:#1e0010">)</span> <span style="color:#960050;background-color:#1e0010">{</span>
+            <span style="color:#a6e22e">echo</span> <span style="color:#960050;background-color:#1e0010">&#34;</span><span style="color:#a6e22e">当前时间</span><span style="color:#960050;background-color:#1e0010">：&#34;.$</span><span style="color:#a6e22e">w-</span>&gt;getHour().&#34; 下午状态不错，继续努力\n&#34;;
+        } else {
+            $w-&gt;setState(new EveningState());
+            $w-&gt;WriteProgram();
+        }
+    }
+}
+
+class EveningState extends State
+{
+    public function WriteProgram(Work $w)
+    {
+        if ($w-&gt;getTaskFinishedState()) {
+            //如果完成任务，下班
+            $w-&gt;setState(new RestState());
+            $w-&gt;WriteProgram();
+        } else {
+            if ($w-&gt;getHour() &lt; <span style="color:#f92672">21</span><span style="color:#960050;background-color:#1e0010">)</span> <span style="color:#960050;background-color:#1e0010">{</span>
+                <span style="color:#a6e22e">echo</span> <span style="color:#960050;background-color:#1e0010">&#34;</span><span style="color:#a6e22e">当前时间</span><span style="color:#960050;background-color:#1e0010">：&#34;.$</span><span style="color:#a6e22e">w-</span>&gt;getHour().&#34; 加班哦，疲惫之极\n&#34;;
+            } else {
+                //超过21点，则转入睡眠工作状态
+                $w-&gt;setState(new SleepingState());
+                $w-&gt;WriteProgram();
+            }
+        }
+    }
+}
+
+class SleepingState extends State
+{
+    public function WriteProgram(Work $w)
+    {
+        echo &#34;当前时间：&#34;.$w-&gt;getHour().&#34; 不行了，睡觉\n&#34;;
+    }
+}
+
+class RestState extends State
+{
+    public function WriteProgram(Work $w)
+    {
+        echo &#34;当前时间：&#34;.$w-&gt;getHour().&#34; 下班回家\n&#34;;
+    }
+}
+
+class Work
+{
+    private $current;
+
+    function __construct()
+    {
+        $this-&gt;current = new ForenoonState();
+    }
+
+    private $hour;
+    public function getHour()
+    {
+        return $this-&gt;hour;
+    }
+    public function setHour($hour)
+    {
+        $this-&gt;hour = $hour;
+    }
+
+    private $finished = false;
+    public function setTaskFinished($bool)
+    {
+        $this-&gt;finished = $bool;
+    }
+    public function getTaskFinishedState()
+    {
+        return $this-&gt;finished;
+    }
+
+    public function setState(State $state)
+    {
+        $this-&gt;current = $state;
+    }
+
+    public function WriteProgram()
+    {
+        $this-&gt;current-&gt;WriteProgram($this);
+    }
+}
+
+//客户端代码
+$emergencyProjects = new Work();
+$emergencyProjects-&gt;setHour(9);
+$emergencyProjects-&gt;WriteProgram();
+$emergencyProjects-&gt;setHour(10);
+$emergencyProjects-&gt;WriteProgram();
+$emergencyProjects-&gt;setHour(12);
+$emergencyProjects-&gt;WriteProgram();
+$emergencyProjects-&gt;setHour(13);
+$emergencyProjects-&gt;WriteProgram();
+$emergencyProjects-&gt;setHour(14);
+$emergencyProjects-&gt;WriteProgram();
+$emergencyProjects-&gt;setHour(17);
+
+$emergencyProjects-&gt;setTaskFinished(false);
+$emergencyProjects-&gt;WriteProgram();
+
+$emergencyProjects-&gt;setHour(19);
+$emergencyProjects-&gt;WriteProgram();
+$emergencyProjects-&gt;setHour(22);
+$emergencyProjects-&gt;WriteProgram();
+
+</code></pre></div><p>总结：</p>
+<blockquote>
+<p><em><strong>状态模式</strong></em>，当一个对象的内在状态改变时允许改变其行为，这个对象看起来像是改变了其类。</p>
+</blockquote>
+<blockquote>
+<p>面向对象设计其实就是希望做到代码的责任分解。</p>
+</blockquote>
+<blockquote>
+<p>状态模式主要解决的当控制一个对象状态转换的条件表达式过于复杂时的情况。把状态的判断逻辑转移到表示不同状态的一系列类当中，可以把复杂的判断逻辑简单化。</p>
+</blockquote>
+<blockquote>
+<p>将于特定状态相关的行为局部化，并且将不同状态的行为分割开来。</p>
+</blockquote>
+<blockquote>
+<p>将特定的状态相关的行为都放入一个对象中，由于所有与状态相关的代码都存在于某个ConcreteState中，所以通过定义的子类可以很容易地增加新的状态和转换。</p>
+</blockquote>
+<blockquote>
+<p>消除了庞大的条件分支语句。</p>
+</blockquote>
+<blockquote>
+<p>状态模式通过把各种状态转移逻辑分布到State的子类之间，来减少项目之间的依赖。</p>
+</blockquote>
+<blockquote>
+<p>当一个对象的行为取决于它的状态，并且它必须在运行时刻根据状态改变它的行为时，就可以考虑使用状态模式了。</p>
+</blockquote>
+<p>上一章：<a href="/docs/chapter15/">第十五章 就不能不换DB吗？ －－－ 抽象工厂模式</a></p>
+<p>下一章：<a href="/docs/chapter17/">第十七章 在NBA我需要翻译 －－－ 适配器模式</a></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#第十六章-无尽加班何时休--状态模式">第十六章 无尽加班何时休 －－－ 状态模式</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docs on design-patterns-by-php</title>
+    <link>http://example.org/docs/</link>
+    <description>Recent content in Docs on design-patterns-by-php</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="http://example.org/docs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>序言</title>
+      <link>http://example.org/docs/%E5%BA%8F%E8%A8%80/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/%E5%BA%8F%E8%A8%80/</guid>
+      <description>《大话设计模式》php版本 用自己现在用的语言重新写一遍，文中的代码均可以在终端内执行
+相关资源：
+Design Patterns for Humans
+DesignPatternsPHP
+目录 #    第一章 代码无错就是优 －－－简单工厂模式
+  第二章 商场促销 －－－ 策略模式
+  第三章 拍摄UFO －－－ 单一职责原则
+  第四章 研求职两不误 －－－ 开放－封闭原则
+  第五章 会修电脑不会修收音机？ －－－ 依赖倒转原则
+  第六章 穿什么有这么重要吗 －－－ 装饰模式
+  第七章 为别人做嫁衣 －－－ 代理模式
+  第八章 雷锋依然在人间 －－－ 工厂方法模式
+  第九章 简历复印 －－－ 原型模式
+  第十章 考题抄错会做也白搭 －－－ 模版方法模式</description>
+    </item>
+    
+    <item>
+      <title>第一章 代码无错就是优 －－－ 简单工厂模式</title>
+      <link>http://example.org/docs/chapter1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/chapter1/</guid>
+      <description>第一章 代码无错就是优 －－－ 简单工厂模式 #  1.简单工厂模式
+&amp;lt;?php /** * Operation */ class Operation { protected $a = 0; protected $b = 0; public function setA($a) { $this-&amp;gt;a = $a; } public function setB($b) { $this-&amp;gt;b = $b; } public function getResult() { $result = 0; return $result; } } /** * Add */ class OperationAdd extends Operation { public function getResult() { return $this-&amp;gt;a + $this-&amp;gt;b; } } /** * Mul */ class OperationMul extends Operation { public function getResult() { return $this-&amp;gt;a * $this-&amp;gt;b; } } /** * Sub */ class OperationSub extends Operation { public function getResult() { return $this-&amp;gt;a - $this-&amp;gt;b; } } /** * Div */ class OperationDiv extends Operation { public function getResult() { return $this-&amp;gt;a / $this-&amp;gt;b; } } /** * Operation Factory */ class OperationFactory { public static function createOperation($operation) { switch ($operation) { case &amp;#39;+&amp;#39;: $oper = new OperationAdd(); break; case &amp;#39;-&amp;#39;: $oper = new OperationSub(); break; case &amp;#39;/&amp;#39;: $oper = new OperationDiv(); break; case &amp;#39;*&amp;#39;: $oper = new OperationMul(); break; } return $oper; } } // 客户端代码 $operation = OperationFactory::createOperation(&amp;#39;+&amp;#39;); $operation-&amp;gt;setA(1); $operation-&amp;gt;setB(2); echo $operation-&amp;gt;getResult() .</description>
+    </item>
+    
+    <item>
+      <title>第二章 商场促销 －－－ 策略模式</title>
+      <link>http://example.org/docs/chapter2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/chapter2/</guid>
+      <description>第二章 商场促销 －－－ 策略模式 #  1.策略模式
+&amp;lt;?php /** * abstract class */ abstract class Strategy { // 算法方法  abstract public function AlgorithmInterface(); } /** * 算法a */ class ConcreteStrategyA extends Strategy { public function AlgorithmInterface() { echo &amp;#34;算法a实现\n&amp;#34;; } } /** * 算法b */ class ConcreteStrategyB extends Strategy { public function AlgorithmInterface() { echo &amp;#34;算法b实现\n&amp;#34;; } } /** * 算法c */ class ConcreteStrategyC extends Strategy { public function AlgorithmInterface() { echo &amp;#34;算法c实现\n&amp;#34;; } } /** * 上下文context */ class Context { private $strategy; function __construct($strategy) { $this-&amp;gt;strategy = $strategy; } public function contextInterface() { $this-&amp;gt;strategy-&amp;gt;AlgorithmInterface(); } } $context = new Context(new ConcreteStrategyA()); $context-&amp;gt;contextInterface(); $context = new Context(new ConcreteStrategyB()); $context-&amp;gt;contextInterface(); $context = new Context(new ConcreteStrategyC()); $context-&amp;gt;contextInterface(); 2.</description>
+    </item>
+    
+    <item>
+      <title>第三章 拍摄UFO －－－ 单一职责原则</title>
+      <link>http://example.org/docs/chapter3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/chapter3/</guid>
+      <description>第三章 拍摄UFO －－－ 单一职责原则 #  总结
+ 单一职责原则， 就一个类而言,应该仅有一个引起 它变化的原因。
+  如果一个类承担的职责过多，就等于把职责耦合在一起，一个职责的变化可能会削弱或者抑制这个类完成其他职责的能力。这种耦合会导致脆弱的设计，当变化发生时，设计会遭受到意想不到的破环。
+  软件设计真正要做的许多内容，就是发现职责并把这些职责相互分离。
+  如果你能够想到多于一个的动机改变一个类，那么这个类就具有多于一个类的职责。
+ 上一章：第二章 商场促销 －－－ 策略模式
+下一章：第四章 考研求职两不误 －－－ 开放－封闭原则</description>
+    </item>
+    
+    <item>
+      <title>第四章 研求职两不误 －－－ 开放－封闭原则</title>
+      <link>http://example.org/docs/chapter4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/chapter4/</guid>
+      <description>第四章 研求职两不误 －－－ 开放－封闭原则 #  总结
+ 开放－封闭原则， 是说软件实体应该可以扩展，但是不可以修改。
+  怎样的设计才能面对需求的改变却可以保持相对稳定，从而使得系统可以在第一个版本以后不断推出新的版本呢？
+  无论模块是多么的‘封闭’，都会存在一些无法对之封闭的变化。既然不可能完全封闭，设计人员必须对于他设计的模块应该对哪种变化封闭做出选择。他必须先猜测出最有可能发生的变化种类，然后构造抽象来隔离那些变化。
+  等到发生变化时立即采取行动。
+  在我们最初编写代码时，假设变化不会发生。当发生变化时，我们就创建抽象来隔离以后发生的同类变化。
+  面对需求，对程序的改动是通过增加新代码进行的，而不是更改现有的代码。
+  开发－封闭原则是面向对象设计的核心所在。遵循这个原则可以带来面向对象技术所声称的巨大好处，也就是可维护，可复用，灵活性好。开发人员应该仅对程序中呈现出频繁变化的那些部分做出抽象，然而，对于应用程序中的每个部分都刻意地进行抽象同样不是一件好事。拒绝不成熟的抽象和抽象本身一样重要。
+ 上一章：第三章 拍摄UFO －－－ 单一职责原则
+下一章：第五章 会修电脑不会修收音机？ －－－ 依赖倒转原则</description>
+    </item>
+    
+    <item>
+      <title>第五章 会修电脑不会修收音机？ －－－ 依赖倒转原则</title>
+      <link>http://example.org/docs/chapter5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/chapter5/</guid>
+      <description>第五章 会修电脑不会修收音机？ －－－ 依赖倒转原则 #  总结
+ 依赖倒转原则, 高层模块不应该依赖底层模块，抽象不应该依赖细节，都应该依赖抽象。针对接口编程，不要对实现编程。
+  里氏替换原则，子类型必须能够替换它们的父类型。
+  只有当子类可以替换父类，软件单位的功能不受影响时，父类才真正被复用，而子类也能够在父类的基础上增加新的行为。
+  由于子类型的可替换性才使得使用父类类型的模块在无需修改的情况下就可以扩展。
+  依赖倒转其实可以说是面向对象设计的标志，用哪种语言来编写程序不重要，如果编写时考虑的都是如何针对抽象编程而不是针对细节编程，即程序中所有的依赖关系都是终止于抽象类或者接口，那就是面向对象的设计，反之那就是过程化的设计了。
+ 上一章：第四章 研求职两不误 －－－ 开放－封闭原则
+下一章：第六章 穿什么有这么重要吗 －－－ 装饰模式</description>
+    </item>
+    
+    <item>
+      <title>第六章 穿什么有这么重要吗 －－－ 装饰模式</title>
+      <link>http://example.org/docs/chapter6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/chapter6/</guid>
+      <description>第六章 穿什么有这么重要吗 －－－ 装饰模式 #  &amp;lt;?php abstract class Component { abstract public function Operation(); } /** * ConcreteComponent */ class ConcreteComponent extends Component { public function Operation() { echo &amp;#34;具体对象的操作.\n&amp;#34;; } } abstract class Decorator extends Component { protected $component; // 设置component  public function SetComponent($component) { $this-&amp;gt;component = $component; } // 重写Operation(),实际执行的是component的Operation方法  public function Operation() { if ($this-&amp;gt;component != null) { $this-&amp;gt;component-&amp;gt;Operation(); } } } /** * ConcreteDecoratorA */ class ConcreteDecoratorA extends Decorator { // 本类的独有功能，以区别于ConcreteDecoratorB  private $addedState; public function Operation() { // 首先运行原Component的Operation(),再执行本类的功能，  // 如addedState,相当于对原Component进行了装饰  parent::Operation(); $this-&amp;gt;addedState = &amp;#34;ConcreteDecoratorA Status&amp;#34;; echo $this-&amp;gt;addedState.</description>
+    </item>
+    
+    <item>
+      <title>第七章 为别人做嫁衣 －－－ 代理模式</title>
+      <link>http://example.org/docs/chapter7/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/chapter7/</guid>
+      <description>第七章 为别人做嫁衣 －－－ 代理模式 #  &amp;lt;?php class SchoolGirl { private $name; function __construct($name) { $this-&amp;gt;name = $name; } public function getName() { return $this-&amp;gt;name; } } // 代理接口 interface GiveGift { public function GiveDolls(); public function GiveFlowers(); public function GiveChocolate(); } // 代理实现送礼物接口 class Proxy implements GiveGift { protected $pursuit; function __construct(SchoolGirl $girl) { $this-&amp;gt;pursuit = new Pursuit($girl); } public function GiveDolls() { $this-&amp;gt;pursuit-&amp;gt;GiveDolls(); } public function GiveFlowers() { $this-&amp;gt;pursuit-&amp;gt;GiveFlowers(); } public function GiveChocolate() { $this-&amp;gt;pursuit-&amp;gt;GiveChocolate(); } } // 追求者类实现送礼物接口 class Pursuit implements GiveGift { protected $girl; function __construct(SchoolGirl $girl) { $this-&amp;gt;girl = $girl; } public function GiveDolls() { echo $this-&amp;gt;girl-&amp;gt;getName().</description>
+    </item>
+    
+    <item>
+      <title>第八章 雷锋依然在人间 －－－ 工厂方法模式</title>
+      <link>http://example.org/docs/chapter8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/chapter8/</guid>
+      <description>第八章 雷锋依然在人间 －－－ 工厂方法模式 #  根据第一章，简单工厂模式（加减乘除）是这样的：
+class OperationFactory { public static function createOperation($operation) { switch ($operation) { case &amp;#39;+&amp;#39;: $oper = new OperationAdd(); break; case &amp;#39;-&amp;#39;: $oper = new OperationSub(); break; case &amp;#39;/&amp;#39;: $oper = new OperationDiv(); break; case &amp;#39;*&amp;#39;: $oper = new OperationMul(); break; } return $oper; } } // 客户端代码 $operation = OperationFactory::createOperation(&amp;#39;+&amp;#39;); $operation-&amp;gt;setA(1); $operation-&amp;gt;setA(2); echo $operation-&amp;gt;getResult().&amp;#34;\n&amp;#34;; 换成工厂方法模式
+interface IFactory { public function CreateOperation(); } class AddFactory implements IFactory { public function CreateOperation() { return new OperationAdd(); } } class SubFactory implements IFactory { public function CreateOperation() { return new OperationSub(); } } class MulFactory implements IFactory { public function CreateOperation() { return new OperationMul(); } } class DivFactory implements IFactory { public function CreateOperation() { return new OperationDiv(); } } //客户端代码 $operationFactory = new AddFactory(); $operation = $operationFactory-&amp;gt;CreateOperation(); $operation-&amp;gt;setA(10); $operation-&amp;gt;setB(10); echo $operation-&amp;gt;getResult().</description>
+    </item>
+    
+    <item>
+      <title>第九章 简历复印 －－－ 原型模式</title>
+      <link>http://example.org/docs/chapter9/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/chapter9/</guid>
+      <description>第九章 简历复印 －－－ 原型模式 #  &amp;lt;?php class Company { private $company; public function setName($name) { $this-&amp;gt;company = $name; } public function getName() { return $this-&amp;gt;company; } } class Resume { private $name; private $sex; private $age; private $timeArea; private $company; function __construct($name) { $this-&amp;gt;name = $name; $this-&amp;gt;company = new Company(); } public function setPersonalInfo($sex, $age) { $this-&amp;gt;sex = $sex; $this-&amp;gt;age = $age; } public function setWorkExperience($timeArea, $company) { $this-&amp;gt;timeArea = $timeArea; $this-&amp;gt;company-&amp;gt;setName($company); } public function display() { echo $this-&amp;gt;name.</description>
+    </item>
+    
+    <item>
+      <title>第十章 考题抄错会做也白搭 －－－ 模版方法模式</title>
+      <link>http://example.org/docs/chapter10/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/chapter10/</guid>
+      <description>第十章 考题抄错会做也白搭 －－－ 模版方法模式 #  &amp;lt;?php // 对甲乙两名同学所抄试卷，尽量将相同的部分提到父类 // 金庸小说考题试卷 class TestPaper { public function TestQuestion1() { echo &amp;#34;杨过说过，后来给了郭靖，炼成倚天剑、屠龙刀的玄铁可能是［］a.球磨铸铁 b.马口铁 c.高速合金钢 d.碳素纤维 \n&amp;#34;; echo &amp;#34;答案 &amp;#34;.$this-&amp;gt;answer1().&amp;#34;\n&amp;#34;; } public function TestQuestion2() { echo &amp;#34;杨过、程英、陆无双铲除了情花，造成［］a.使这种植物不在害人 b.使一种珍惜物种灭绝 c.破坏了那个生态圈的生态平衡 d.造成该地区沙漠化 \n&amp;#34;; echo &amp;#34;答案 &amp;#34;.$this-&amp;gt;answer2().&amp;#34;\n&amp;#34;; } public function TestQuestion3() { echo &amp;#34;蓝凤凰致使华山师徒、桃谷六仙呕吐不止，如果你是大夫，会给他们开什么药［］a.阿司匹林 b.牛黄解毒片 c.氟哌酸 d.让他们喝大量的生牛奶 e.以上全不对 \n&amp;#34;; echo &amp;#34;答案 &amp;#34;.$this-&amp;gt;answer3().&amp;#34;\n&amp;#34;; } protected function answer1() { return &amp;#39;&amp;#39;; } protected function answer2() { return &amp;#39;&amp;#39;; } protected function answer3() { return &amp;#39;&amp;#39;; } } // 学生甲抄的试卷 class TestPaperA extends TestPaper { protected function answer1() { return &amp;#39;a&amp;#39;; } protected function answer2() { return &amp;#39;b&amp;#39;; } protected function answer3() { return &amp;#39;c&amp;#39;; } } // 学生乙抄的试卷 // 学生甲抄的试卷 class TestPaperB extends TestPaper { protected function answer1() { return &amp;#39;d&amp;#39;; } protected function answer2() { return &amp;#39;c&amp;#39;; } protected function answer3() { return &amp;#39;a&amp;#39;; } } // 客户端代码  echo &amp;#34;学生甲抄的试卷: \n&amp;#34;; $student = new TestPaperA(); $student-&amp;gt;TestQuestion1(); $student-&amp;gt;TestQuestion2(); $student-&amp;gt;TestQuestion3(); echo &amp;#34;学生乙抄的试卷: \n&amp;#34;; $student2 = new TestPaperB(); $student2-&amp;gt;TestQuestion1(); $student2-&amp;gt;TestQuestion2(); $student2-&amp;gt;TestQuestion3(); 总结：</description>
+    </item>
+    
+    <item>
+      <title>第十一章 无熟人难办事 －－－ 迪米特法则</title>
+      <link>http://example.org/docs/chapter11/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/chapter11/</guid>
+      <description>第十一章 无熟人难办事 －－－ 迪米特法则 #  总结：
+ 迪米特法则，如果两个类不彼此直接通信，那么这两个类就不应当发生直接的相互作用。如果其中一个类需要调用另一个类的某一个方法的话，可以通过第三者转发这个调用。
+  在类的结构设计上，每一个类都应当 尽量降低成员的访问权限
+  类之间的耦合越弱，越有利于复用，一个处在弱耦合的类被修改，不会对有关系的类造成波及。
+ 上一章：第十章 考题抄错会做也白搭 －－－ 模版方法模式
+下一章：第十二章 牛市股票还会亏钱 －－－ 外观模式</description>
+    </item>
+    
+    <item>
+      <title>第十二章 牛市股票还会亏钱 －－－ 外观模式</title>
+      <link>http://example.org/docs/chapter12/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/chapter12/</guid>
+      <description>第十二章 牛市股票还会亏钱 －－－ 外观模式 #  &amp;lt;?php //子系统1 class SubSystemOne { public function methodOne() { echo &amp;#34;子系统方法1\n&amp;#34;; } } //子系统2 class SubSystemTwo { public function methodTwo() { echo &amp;#34;子系统方法2\n&amp;#34;; } } //子系统3 class SubSystemThree { public function methodThree() { echo &amp;#34;子系统方法3\n&amp;#34;; } } //子系统4 class SubSystemFourth { public function methodFourth() { echo &amp;#34;子系统方法4\n&amp;#34;; } } // 外观方法 class Facade { private $systemOne; private $systemTwo; private $systemThree; private $systemFour; function __construct() { $this-&amp;gt;systemOne = new SubSystemOne(); $this-&amp;gt;systemTwo = new SubSystemTwo(); $this-&amp;gt;systemThree = new SubSystemThree(); $this-&amp;gt;systemFour = new SubSystemFourth(); } public function methodA() { echo &amp;#34;方法A() ---\n&amp;#34;; $this-&amp;gt;systemOne-&amp;gt;methodOne(); $this-&amp;gt;systemThree-&amp;gt;methodThree(); } public function methodB() { echo &amp;#34;方法B() ---\n&amp;#34;; $this-&amp;gt;systemTwo-&amp;gt;methodTwo(); $this-&amp;gt;systemFour-&amp;gt;methodFourth(); } } //客户端代码  $facade = new Facade(); $facade-&amp;gt;methodA(); $facade-&amp;gt;methodB(); 总结：</description>
+    </item>
+    
+    <item>
+      <title>第十三章 好菜每回味不同 －－－ 建造者模式</title>
+      <link>http://example.org/docs/chapter13/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/chapter13/</guid>
+      <description>第十三章 好菜每回味不同 －－－ 建造者模式 #  &amp;lt;?php //画小人  abstract class PersonBuilder { abstract public function BuildHead(); abstract public function BuildBody(); abstract public function BuildArmLeft(); abstract public function BuildArmRight(); abstract public function BuildLegLeft(); abstract public function BuildLegRight(); } class PersonThinBuilder extends PersonBuilder { public function BuildHead() { echo &amp;#34;小头\n&amp;#34;; } public function BuildBody() { echo &amp;#34;小身子\n&amp;#34;; } public function BuildArmRight() { echo &amp;#34;右臂\n&amp;#34;; } public function BuildArmLeft() { echo &amp;#34;左臂\n&amp;#34;; } public function BuildLegLeft() { echo &amp;#34;左腿\n&amp;#34;; } public function BuildLegRight() { echo &amp;#34;右腿\n&amp;#34;; } } class PersonFatBuilder extends PersonBuilder { public function BuildHead() { echo &amp;#34;大头\n&amp;#34;; } public function BuildBody() { echo &amp;#34;大身子\n&amp;#34;; } public function BuildArmRight() { echo &amp;#34;右臂\n&amp;#34;; } public function BuildArmLeft() { echo &amp;#34;左臂\n&amp;#34;; } public function BuildLegLeft() { echo &amp;#34;左腿\n&amp;#34;; } public function BuildLegRight() { echo &amp;#34;右腿\n&amp;#34;; } } class PersonDirector { private $personBuilder; function __construct($personBuilder) { $this-&amp;gt;personBuilder = $personBuilder; } public function CreatePerson() { $this-&amp;gt;personBuilder-&amp;gt;BuildHead(); $this-&amp;gt;personBuilder-&amp;gt;BuildBody(); $this-&amp;gt;personBuilder-&amp;gt;BuildArmRight(); $this-&amp;gt;personBuilder-&amp;gt;BuildArmLeft(); $this-&amp;gt;personBuilder-&amp;gt;BuildLegLeft(); $this-&amp;gt;personBuilder-&amp;gt;BuildLegRight(); } } //客户端代码  echo &amp;#34;苗条的:\n&amp;#34;; $thinDirector = new PersonDirector(new PersonThinBuilder()); $thinDirector-&amp;gt;CreatePerson(); echo &amp;#34;\n胖的:\n&amp;#34;; $fatDirector = new PersonDirector(new PersonFatBuilder()); $fatDirector-&amp;gt;CreatePerson(); 总结：</description>
+    </item>
+    
+    <item>
+      <title>第十四章 老板回来，我不知道 －－－ 观察者模式</title>
+      <link>http://example.org/docs/chapter14/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/chapter14/</guid>
+      <description>第十四章 老板回来，我不知道 －－－ 观察者模式 #  &amp;lt;?php abstract class Subject { private $observers = []; public function attach(Observer $observer) { array_push($this-&amp;gt;observers, $observer); } public function detatch($observer) { foreach ($this-&amp;gt;observers as $key =&amp;gt; $value) { if ($observer === $value) { unset($this-&amp;gt;observers[$key]); } } } public function notify() { foreach ($this-&amp;gt;observers as $observer) { $observer-&amp;gt;update(); } } } abstract class Observer { abstract function update(); } class ConcreteSubject extends Subject { private $subjectState; public function setState($state) { $this-&amp;gt;subjectState = $state; } public function getState() { return $this-&amp;gt;subjectState; } } class ConcreteObserver extends Observer { private $name; private $subject; function __construct(ConcreteSubject $subject, $name) { $this-&amp;gt;subject = $subject; $this-&amp;gt;name = $name; } public function update() { echo &amp;#34;观察者 &amp;#34;.</description>
+    </item>
+    
+    <item>
+      <title>第十五章 就不能不换DB吗？ －－－ 抽象工厂模式</title>
+      <link>http://example.org/docs/chapter15/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/chapter15/</guid>
+      <description>第十五章 就不能不换DB吗？ －－－ 抽象工厂模式 #  &amp;lt;?php /////////version1 //数据库访问 class User { private $id = null; public function setId($id) { $this-&amp;gt;id = $id; } public function getId($id) { return $this-&amp;gt;id; } private $name = null; public function setName($name) { $this-&amp;gt;name = $name; } public function getName($name) { return $this-&amp;gt;id; } } class Department { private $id = null; public function setId($id) { $this-&amp;gt;id = $id; } public function getId($id) { return $this-&amp;gt;id; } private $name = null; public function setName($name) { $this-&amp;gt;name = $name; } public function getName($name) { return $this-&amp;gt;id; } } interface IUser { public function insert(User $user); public function getUser($id); } class SqlserverUser implements IUser { public function insert(User $user) { echo &amp;#34;往SQL Server中的User表添加一条记录\n&amp;#34;; } public function getUser($id) { echo &amp;#34;根据id得到SQL Server中User表一条记录\n&amp;#34;; } } class AcessUser implements IUser { public function insert(User $user) { echo &amp;#34;往Acess Server中的User表添加一条记录\n&amp;#34;; } public function getUser($id) { echo &amp;#34;根据id得到Acess Server中User表一条记录\n&amp;#34;; } } // interface IFactory // { // public function CreateUser(); // public function CreateDepartment(); // }  // class SqlserverFactory implements IFactory // { // public function CreateUser() // { // return new SqlserverUser(); // }  // public function CreateDepartment() // { // return new SqlserverDepartment(); // } // }  // class AcessFactory implements IFactory // { // public function CreateUser() // { // return new AcessUser(); // }  // public function CreateDepartment() // { // return new AcessDepartment(); // } // } //简单工厂替换抽象工厂 class DataBase { const DB = &amp;#39;Sqlserver&amp;#39;; // private $db = &amp;#39;Access&amp;#39;;  public static function CreateUser() { $class = static::DB.</description>
+    </item>
+    
+    <item>
+      <title>第十六章 无尽加班何时休 －－－ 状态模式</title>
+      <link>http://example.org/docs/chapter16/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/chapter16/</guid>
+      <description>第十六章 无尽加班何时休 －－－ 状态模式 #  //工作状态 abstract class State { abstract public function WriteProgram(Work $w); } class ForenoonState extends State { public function WriteProgram(Work $w) { if ($w-&amp;gt;getHour() &amp;lt; 12) { echo &amp;#34;当前时间：&amp;#34;.$w-&amp;gt;getHour().&amp;#34; 上午工作，精神百倍\n&amp;#34;; } else { $w-&amp;gt;setState(new NoonState()); $w-&amp;gt;WriteProgram(); } } } class NoonState extends State { public function WriteProgram(Work $w) { if ($w-&amp;gt;getHour() &amp;lt; 13) { echo &amp;#34;当前时间：&amp;#34;.$w-&amp;gt;getHour().&amp;#34; 饿了，午饭；犯困，午休\n&amp;#34;; } else { $w-&amp;gt;setState(new AfterNoonState()); $w-&amp;gt;WriteProgram(); } } } class AfterNoonState extends State { public function WriteProgram(Work $w) { if ($w-&amp;gt;getHour() &amp;lt; 17) { echo &amp;#34;当前时间：&amp;#34;.</description>
+    </item>
+    
+    <item>
+      <title>第十七章 在NBA我需要翻译 －－－ 适配器模式</title>
+      <link>http://example.org/docs/chapter17/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/chapter17/</guid>
+      <description>第十七章 在NBA我需要翻译 －－－ 适配器模式 #  &amp;lt;?php //篮球翻译适配器 abstract class Player { protected $name; function __construct($name) { $this-&amp;gt;name = $name; } abstract public function Attack(); abstract public function Defense(); } //前锋 class Forwards extends Player { public function Attack() { echo &amp;#34;前锋:&amp;#34;.$this-&amp;gt;name.&amp;#34; 进攻\n&amp;#34;; } public function Defense() { echo &amp;#34;前锋:&amp;#34;.$this-&amp;gt;name.&amp;#34; 防守\n&amp;#34;; } } //中锋 class Center extends Player { function __construct() { parent::__construct(); } public function Attack() { echo &amp;#34;中锋:&amp;#34;.$this-&amp;gt;name.&amp;#34; 进攻\n&amp;#34;; } public function Defense() { echo &amp;#34;中锋:&amp;#34;.</description>
+    </item>
+    
+    <item>
+      <title>第十八章 如果再回到从前 －－－ 备忘录模式</title>
+      <link>http://example.org/docs/chapter18/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/chapter18/</guid>
+      <description>第十八章 如果再回到从前 －－－ 备忘录模式 #  &amp;lt;?php //发起人类 class Originator { // 需要保存的属性，可能有多个  private $state; public function setState($state) { $this-&amp;gt;state = $state; } public function getState() { return $this-&amp;gt;state; } //创建备忘录，将当前需要保存的信息导入并实例化出一个memento对象。  public function createMemento() { return new Memento($this-&amp;gt;state); } //恢复备忘录，将memento导入并将相关数据恢复。  public function setMemento(Memento $memento) { $this-&amp;gt;state = $memento-&amp;gt;getState(); } //显示数据  public function show() { echo &amp;#34;status &amp;#34;.$this-&amp;gt;state.&amp;#34;\n&amp;#34;; } } //备忘录类  class Memento { private $state; //构造方法，将相关数据导入  function __construct($state) { $this-&amp;gt;state = $state; } //获取需要保存的数据，可以多个  public function getState() { return $this-&amp;gt;state; } } //管理者类 class CareTaker { private $memento; public function getMemento() { return $this-&amp;gt;memento; } //设置备忘录  public function setMemento(Memento $memento) { $this-&amp;gt;memento = $memento; } } //客户端程序 $o = new Originator(); //Originator初始状态，状态属性on $o-&amp;gt;setState(&amp;#34;On&amp;#34;); $o-&amp;gt;show(); //保存状态时，由于有了很好的封装，可以隐藏Originator的实现细节 $c = new CareTaker(); $c-&amp;gt;setMemento($o-&amp;gt;createMemento()); // 改变属性 $o-&amp;gt;setState(&amp;#34;Off&amp;#34;); $o-&amp;gt;show(); // 恢复属性 $o-&amp;gt;setMemento($c-&amp;gt;getMemento()); $o-&amp;gt;show(); 总结：</description>
+    </item>
+    
+    <item>
+      <title>第十九章 分公司＝一部分  －－－ 组合模式</title>
+      <link>http://example.org/docs/chapter19/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/chapter19/</guid>
+      <description>第十九章 分公司＝一部分 －－－ 组合模式 #  &amp;lt;?php // component为组合中的对象接口，在适当的情况下，实现所有类共有接口的默认行为。声明一个接口用于访问和管理Component的字部件。 abstract class Component { protected $name; function __construct($name) { $this-&amp;gt;name = $name; } //通常用add和remove方法来提供增加或移除树枝货树叶的功能  abstract public function add(Component $c); abstract public function remove(Component $c); abstract public function display($depth); } //leaf在组合中表示叶节点对象，叶节点对象没有子节点。 class Leaf extends Component { // 由于叶子没有再增加分枝和树叶，所以add和remove方法实现它没有意义，  // 但这样做可以消除叶节点和枝节点对象在抽象层次的区别，它们具有完全一致的接口  public function add(Component $c) { echo &amp;#34;can not add to a leaf\n&amp;#34;; } public function remove(Component $c) { echo &amp;#34;can not remove to a leaf\n&amp;#34;; } // 叶节点的具体方法，此处是显示其名称和级别  public function display($depth) { echo str_repeat(&amp;#39;-&amp;#39;, $depth).</description>
+    </item>
+    
+    <item>
+      <title>第二十章 想走？可以！先买票 －－－ 迭代器模式</title>
+      <link>http://example.org/docs/chapter20/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/chapter20/</guid>
+      <description>第二十章 想走？可以！先买票 －－－ 迭代器模式 #  &amp;lt;?php //迭代器抽象类 abstract class IteratorClass { abstract public function first(); abstract public function next(); abstract public function isDone(); abstract public function currentItem(); } // 聚集抽象类 abstract class Aggregate { abstract function createIterator(); } class ConcreteIterator extends IteratorClass { private $aggregate; private $current = 0; function __construct($aggregate) { $this-&amp;gt;aggregate = $aggregate; } public function first() { return $this-&amp;gt;aggregate[0]; } public function next() { $ret = null; $this-&amp;gt;current++; if ($this-&amp;gt;current &amp;lt; count($this-&amp;gt;aggregate)) { $ret = $this-&amp;gt;aggregate[$this-&amp;gt;current]; } return $ret; } public function isDone() { return $this-&amp;gt;current &amp;gt;= count($this-&amp;gt;aggregate); } public function currentItem() { return $this-&amp;gt;aggregate[$this-&amp;gt;current]; } } //这个类的代码感觉不符合书上的写法，但我感觉书上的不对，可能我知识面太单薄，没读懂，可自行参阅原著😊。 class ConcreteAggregate extends Aggregate { private $items = []; public function createIterator() { return new ConcreteIterator($this); } public function count() { return count($this-&amp;gt;items); } public function add($item) { array_push($this-&amp;gt;items, $item); } public function items() { return $this-&amp;gt;items; } } //客户端代码 $a = new ConcreteAggregate(); $a-&amp;gt;add(&amp;#34;大鸟&amp;#34;); $a-&amp;gt;add(&amp;#34;小菜&amp;#34;); $a-&amp;gt;add(&amp;#34;行李&amp;#34;); $a-&amp;gt;add(&amp;#34;老外&amp;#34;); $a-&amp;gt;add(&amp;#34;公交内部员工&amp;#34;); $a-&amp;gt;add(&amp;#34;小偷&amp;#34;); $i = new ConcreteIterator($a-&amp;gt;items()); while (!</description>
+    </item>
+    
+    <item>
+      <title>第二十一章 有些类也需要计划生育 －－－ 单例模式</title>
+      <link>http://example.org/docs/chapter21/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/chapter21/</guid>
+      <description>第二十一章 有些类也需要计划生育 －－－ 单例模式 #  &amp;lt;?php class Singleton { private static $instance; private function __construct(){} public static function getInstance() { if (static::$instance == null) { static::$instance = new Singleton(); } return static::$instance; } } //客户端代码 $s1 = Singleton::getInstance(); $s2 = Singleton::getInstance(); if ($s1 == $s2) { echo &amp;#34;same class&amp;#34;; } 总结：
+ 单例模式，保证一个类仅有一个实例，并提供一个访问它的全局访问点。
+  单例模式因为Singleton类封装它的唯一实例，这样它可以严格地控制客户怎样访问以及何时访问它。简单地说就是对唯一实例的受控访问。
+ 上一章：第二十章 想走？可以！先买票 －－－ 迭代器模式
+下一章：第二十二章 手机软件何时统一 －－－ 桥接模式</description>
+    </item>
+    
+    <item>
+      <title>第二十二章 手机软件何时统 －－－ 桥接模式</title>
+      <link>http://example.org/docs/chapter22/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/chapter22/</guid>
+      <description>第二十二章 手机软件何时统 －－－ 桥接模式 #  &amp;lt;?php //手机软件 abstract class HandsetSoft { abstract public function run(); } //游戏、通讯录等具体类  //手机游戏 class HandsetGame extends HandsetSoft { public function run() { echo &amp;#34;运行手机游戏\n&amp;#34;; } } //手机通讯录 class HandsetAddressList extends HandsetSoft { public function run() { echo &amp;#34;运行手机通讯录\n&amp;#34;; } } //手机品牌类 abstract class HandsetBrand { protected $soft; //设置手机软件  public function setHandsetSoft(HandsetSoft $soft) { $this-&amp;gt;soft = $soft; } //运行  abstract public function run(); } // 手机品牌n class HandsetBrandN extends HandsetBrand { public function run() { $this-&amp;gt;soft-&amp;gt;run(); } } // 手机品牌m class HandsetBrandM extends HandsetBrand { public function run() { $this-&amp;gt;soft-&amp;gt;run(); } } //客户端调用代码 $ab = new HandsetBrandN(); $ab-&amp;gt;setHandsetSoft(new HandsetGame()); $ab-&amp;gt;run(); $ab-&amp;gt;setHandsetSoft(new HandsetAddressList()); $ab-&amp;gt;run(); $ab = new HandsetBrandM(); $ab-&amp;gt;setHandsetSoft(new HandsetGame()); $ab-&amp;gt;run(); $ab-&amp;gt;setHandsetSoft(new HandsetAddressList()); $ab-&amp;gt;run(); 总结：</description>
+    </item>
+    
+    <item>
+      <title>第二十三章 烤羊肉串引来的思考 －－－ 命令模式</title>
+      <link>http://example.org/docs/chapter23/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/chapter23/</guid>
+      <description>第二十三章 烤羊肉串引来的思考 －－－ 命令模式 #  &amp;lt;?php //烤串  class Barbecuer { public function bakeMutton() { echo &amp;#34;烤羊肉串\n&amp;#34;; } public function bakeChickenWing() { echo &amp;#34;烤鸡翅\n&amp;#34;; } } // 抽象命令 abstract class Command { protected $receiver; function __construct(Barbecuer $receiver) { $this-&amp;gt;receiver = $receiver; } abstract public function excuteCommand(); } //烤羊肉 class BakeMuttonCommand extends Command { public function excuteCommand() { $this-&amp;gt;receiver-&amp;gt;bakeMutton(); } } //烤鸡翅 class BakeChickenWingCommand extends Command { public function excuteCommand() { $this-&amp;gt;receiver-&amp;gt;bakeChickenWing(); } } //服务员 class Waiter { private $commands = []; //设置订单  public function setOrder(Command $command) { if ($command instanceof BakeChickenWingCommand) { echo &amp;#34;服务员： 鸡翅没有了，请点别的烧烤\n&amp;#34;; } else { echo &amp;#34;增加订单\n&amp;#34;; array_push($this-&amp;gt;commands, $command); } } //取消订单  public function cancelOrder(Command $command){} //通知执行  public function notify() { foreach ($this-&amp;gt;commands as $value) { $value-&amp;gt;excuteCommand(); } } } //客户端代码  //开店前准备 $boy = new Barbecuer(); $bakeMuttonCommand1 = new BakeMuttonCommand($boy); $bakeMuttonCommand2 = new BakeMuttonCommand($boy); $bakeChickenWingCommand1 = new BakeChickenWingCommand($boy); $girl = new Waiter(); //开门营业 $girl-&amp;gt;setOrder($bakeMuttonCommand1); $girl-&amp;gt;setOrder($bakeMuttonCommand2); $girl-&amp;gt;setOrder($bakeChickenWingCommand1); $girl-&amp;gt;notify(); 总结：</description>
+    </item>
+    
+    <item>
+      <title>第二十四章 加薪非要老总批 －－－ 职责链模式</title>
+      <link>http://example.org/docs/chapter24/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/chapter24/</guid>
+      <description>第二十四章 加薪非要老总批 －－－ 职责链模式 #  abstract class Handler { protected $successor; //设置继承者 public function setSuccessor(Handler $successor) { $this-&amp;gt;successor = $successor; } //处理请求的抽象方法 abstract function handleRequest(int $request); } //如果可以处理请求，就处理之，否者转发给它的后继者 class ConcreteHandler1 extends Handler { public function handleRequest(int $request) { if ($request &amp;gt;=0 &amp;amp;&amp;amp; $request &amp;lt; 10) { echo &amp;#34;ConcreteHandler1 handle it\n&amp;#34;; } else if ($this-&amp;gt;successor != null) { // 转移 $this-&amp;gt;successor-&amp;gt;handleRequest($request); } } } class ConcreteHandler2 extends Handler { public function handleRequest(int $request) { if ($request &amp;gt;=10 &amp;amp;&amp;amp; $request &amp;lt; 20) { echo &amp;#34;ConcreteHandler2 handle it\n&amp;#34;; } else if ($this-&amp;gt;successor !</description>
+    </item>
+    
+    <item>
+      <title>第二十五章 世界需要和平 －－－ 中介者模式</title>
+      <link>http://example.org/docs/chapter25/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/chapter25/</guid>
+      <description>第二十五章 世界需要和平 －－－ 中介者模式 #  &amp;lt;?php abstract class Mediator { abstract public function send($message, Colleague $colleague); } abstract class Colleague { protected $mediator; function __construct(Mediator $mediator) { $this-&amp;gt;mediator = $mediator; } } class ConcreteMediator extends Mediator { private $colleague1; private $colleague2; public function setColleague1(Colleague $colleague) { $this-&amp;gt;colleague1 = $colleague; } public function setColleague2(Colleague $colleague) { $this-&amp;gt;colleague2 = $colleague; } public function send($message, Colleague $colleague) { if($this-&amp;gt;colleague1 == $colleague) { $this-&amp;gt;colleague2-&amp;gt;notify($message); } else { $this-&amp;gt;colleague1-&amp;gt;notify($message); } } } class ConcreteColleague1 extends Colleague { public function send($message) { $this-&amp;gt;mediator-&amp;gt;send($message, $this); } public function notify($message) { echo &amp;#34;ConcreteColleague1 &amp;#34;.</description>
+    </item>
+    
+    <item>
+      <title>第二十六章 项目多也别傻做 －－－ 享元模式</title>
+      <link>http://example.org/docs/chapter26/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/chapter26/</guid>
+      <description>第二十六章 项目多也别傻做 －－－ 享元模式 #  class User { private $name; function __construct($name) { $this-&amp;gt;name = $name; } public function getName() { return $this-&amp;gt;name; } } abstract class WebSite { abstract public function use(User $user); } // 具体网站类 class ConcreteWebSite extends WebSite { private $name = &amp;#39;&amp;#39;; function __construct($name) { $this-&amp;gt;name = $name; } public function use(User $user) { echo &amp;#34;网站分类: &amp;#34;.$this-&amp;gt;name.&amp;#34;用户:&amp;#34;.$user-&amp;gt;getName().&amp;#34;\n&amp;#34;; } } //网站工厂 class WebSiteFactory { private $flyweights = []; public function getWebSiteGategory($key) { if (empty($this-&amp;gt;flyweights[$key])) { $this-&amp;gt;flyweights[$key] = new ConcreteWebSite($key); } return $this-&amp;gt;flyweights[$key]; } public function getWebSiteCount() { return count($this-&amp;gt;flyweights); } } $f = new WebSiteFactory(); $fx = $f-&amp;gt;getWebSiteGategory(&amp;#39;产品展示&amp;#39;); $fx-&amp;gt;use(new User(&amp;#39;张伟&amp;#39;)); $fy = $f-&amp;gt;getWebSiteGategory(&amp;#39;产品展示&amp;#39;); $fy-&amp;gt;use(new User(&amp;#39;王伟&amp;#39;)); $fz = $f-&amp;gt;getWebSiteGategory(&amp;#39;产品展示&amp;#39;); $fz-&amp;gt;use(new User(&amp;#39;王芳&amp;#39;)); $fl = $f-&amp;gt;getWebSiteGategory(&amp;#39;博客&amp;#39;); $fl-&amp;gt;use(new User(&amp;#39;李伟&amp;#39;)); $fm = $f-&amp;gt;getWebSiteGategory(&amp;#39;博客&amp;#39;); $fm-&amp;gt;use(new User(&amp;#39;王秀英&amp;#39;)); $fn = $f-&amp;gt;getWebSiteGategory(&amp;#39;博客&amp;#39;); $fn-&amp;gt;use(new User(&amp;#39;李秀英&amp;#39;)); echo &amp;#34;网站分类总数:&amp;#34;.</description>
+    </item>
+    
+    <item>
+      <title>第二十七章 其实你不懂老板的心 －－－ 解释器模式</title>
+      <link>http://example.org/docs/chapter27/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/chapter27/</guid>
+      <description>第二十七章 其实你不懂老板的心 －－－ 解释器模式 #  &amp;lt;?php interface AbstractExpression { public function interpret(Context $context); } class TerminalExpression implements AbstractExpression { public function interpret(Context $context) { echo &amp;#34;终端解释器\n&amp;#34;; } } class NonTerminalExpression implements AbstractExpression { public function interpret(Context $context) { echo &amp;#34;非终端解释器\n&amp;#34;; } } class Context { private $input; public function setInput($input) { $this-&amp;gt;input = $input; } public function getInput() { return $this-&amp;gt;input; } private $output; public function setOutput($output) { $this-&amp;gt;output = $output; } public function getOutput() { return $this-&amp;gt;output; } } $context = new Context(); $syntax = []; array_push($syntax, new TerminalExpression()); array_push($syntax, new NonTerminalExpression()); array_push($syntax, new TerminalExpression()); array_push($syntax, new TerminalExpression()); foreach ($syntax as $value) { $value-&amp;gt;interpret($context); }  解释器模式，给定一个语言，定义它的文法的一种表示，并定义一个解释器，这个解释器使用该表示来解释语言的句子。</description>
+    </item>
+    
+    <item>
+      <title>第二十八章 男人和女人 －－－ 访问者模式</title>
+      <link>http://example.org/docs/chapter28/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/chapter28/</guid>
+      <description>第二十八章 男人和女人 －－－ 访问者模式 #  &amp;lt;?php abstract class Action { abstract public function getManConclusion(Man $concreteElementA); abstract public function getWomanConclusion(Woman $concreteElementB); } abstract class Person { abstract public function accept(Action $visitor); } class Success extends Action { public function getManConclusion(Man $concreteElementA) { echo &amp;#34;背后多半有一个伟大的女人\n&amp;#34;; } public function getWomanConclusion(Woman $concreteElementB) { echo &amp;#34;背后多有一个不成功的男人\n&amp;#34;; } } class Failing extends Action { public function getManConclusion(Man $concreteElementA) { echo &amp;#34;男人失败时，闷头喝酒，谁也不用劝\n&amp;#34;; } public function getWomanConclusion(Woman $concreteElementB) { echo &amp;#34;女人失败时，眼泪汪汪，谁也劝不了\n&amp;#34;; } } class Amativeness extends Action { public function getManConclusion(Man $concreteElementA) { echo &amp;#34;男人恋爱时，凡事不懂也要装懂\n&amp;#34;; } public function getWomanConclusion(Woman $concreteElementB) { echo &amp;#34;女人恋爱时，遇事懂也装作不懂\n&amp;#34;; } } class Man extends Person { public function accept(Action $visitor) { $visitor-&amp;gt;getManConclusion($this); } } class Woman extends Person { public function accept(Action $visitor) { $visitor-&amp;gt;getWomanConclusion($this); } } class ObjectStructure { private $person = []; public function acctch(Person $person) { array_push($this-&amp;gt;person, $person); } public function display(Action $visitor) { foreach ($this-&amp;gt;person as $person) { $person-&amp;gt;accept($visitor); } } } $o = new ObjectStructure(); $o-&amp;gt;acctch(new Man()); $o-&amp;gt;acctch(new Woman()); // 成功时的反应 $v1 = new Success(); $o-&amp;gt;display($v1); $v2 = new Failing(); $o-&amp;gt;display($v2); $v3 = new Amativeness(); $o-&amp;gt;display($v3); 总结</description>
+    </item>
+    
+    <item>
+      <title>第二十九章 OOTV杯超级模式大赛 －－－ 模式总结</title>
+      <link>http://example.org/docs/chapter29/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/chapter29/</guid>
+      <description>第二十九章 OOTV杯超级模式大赛 －－－ 模式总结 #   抽象工厂，提供一个创建一系列或相关依赖对象的接口，而无需指定它们具体的类。
+  建造者，将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示。
+  工厂方法，定义一个用于创建对象的接口，让子类决定实例化哪一个类，工厂模式使得一个类的实例化延迟到子类。
+  原型，用原型实例指定创建对象的种类，并且通过拷贝这些原型创新的对象。
+  单例，保证一个类仅有一个实例，并提供一个访问它的全局访问点。
+  适配器，将一个类的接口转换成客户希望的另外一个接口。适配器模式使得原本由于接口不兼容而不能一起工作的那些类可以一起工作。
+  桥接，将抽象部分与它的实现部分分离，使它们都可以独立地变化。
+  组合，将对象组合成树形结构以表示‘部分－整体’的层次，组合模式使得用户对单个对象和组合对象的使用具有一致性。
+  装饰，动态地给一个对象添加一些额外的职责。就增加功能来说，装饰模式相比生成子类更加灵活。
+  外观，为子系统中的一组接口提供一个一致的界面，外观模式定义了一个高层接口，这个接口使得这一子系统更加容易使用。
+  享元，为运用共享技术有效地支持大量细粒度的对象。
+  代理，为其他对象提供一种代理以控制这个对象的访问。
+  观察者，定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新。
+  模版方法，定义一个操作的算法骨架，而将一些步骤延迟到子类中，模版方法使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。
+  命令，将一个请求封装为一个对象，从而使你可用不同的请求对客户进行参数化；可以对请求排队或记录请求日志，以及支持可撤销的操作。
+  状态，允许一个对象在其内部状态改变时改变它的行为，让对象看起来似乎修改了它的类。
+  职责链，使多个对象都有机会处理请求，从而避免请求的发送者和接受者之间的耦合关系。将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。
+  解释器，给定一个语言，定义它的文法的一种表示，并定义一个解释器，这个解释器使用该表示来解释 语言中的句子。
+  中介者，用一个中介对象来封装一系列的对象交互。中介者使各对象不需要显示得相互引用，从而使其耦合松散，而且可以独立地改变它们之间的交互。
+  访问者，表示一个作用于某对象结构中的各元素的操作。它使你可以在不改变各元素的类的前提下定义作用于这些元素的新操作。
+  策略，定义一系列的算法，把它们一个个封装起来，并且使它们可相互替换。本模式使得算法可独立于使用它的客户而变化。
+  备忘录，在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态。这样以后就可将该对象恢复到原先保存的状态。</description>
+    </item>
+    
+  </channel>
+</rss>

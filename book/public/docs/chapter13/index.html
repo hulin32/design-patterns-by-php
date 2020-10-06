@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="第十三章 好菜每回味不同 －－－ 建造者模式 #  &lt;?php //画小人  abstract class PersonBuilder { abstract public function BuildHead(); abstract public function BuildBody(); abstract public function BuildArmLeft(); abstract public function BuildArmRight(); abstract public function BuildLegLeft(); abstract public function BuildLegRight(); } class PersonThinBuilder extends PersonBuilder { public function BuildHead() { echo &#34;小头\n&#34;; } public function BuildBody() { echo &#34;小身子\n&#34;; } public function BuildArmRight() { echo &#34;右臂\n&#34;; } public function BuildArmLeft() { echo &#34;左臂\n&#34;; } public function BuildLegLeft() { echo &#34;左腿\n&#34;; } public function BuildLegRight() { echo &#34;右腿\n&#34;; } } class PersonFatBuilder extends PersonBuilder { public function BuildHead() { echo &#34;大头\n&#34;; } public function BuildBody() { echo &#34;大身子\n&#34;; } public function BuildArmRight() { echo &#34;右臂\n&#34;; } public function BuildArmLeft() { echo &#34;左臂\n&#34;; } public function BuildLegLeft() { echo &#34;左腿\n&#34;; } public function BuildLegRight() { echo &#34;右腿\n&#34;; } } class PersonDirector { private $personBuilder; function __construct($personBuilder) { $this-&gt;personBuilder = $personBuilder; } public function CreatePerson() { $this-&gt;personBuilder-&gt;BuildHead(); $this-&gt;personBuilder-&gt;BuildBody(); $this-&gt;personBuilder-&gt;BuildArmRight(); $this-&gt;personBuilder-&gt;BuildArmLeft(); $this-&gt;personBuilder-&gt;BuildLegLeft(); $this-&gt;personBuilder-&gt;BuildLegRight(); } } //客户端代码  echo &#34;苗条的:\n&#34;; $thinDirector = new PersonDirector(new PersonThinBuilder()); $thinDirector-&gt;CreatePerson(); echo &#34;\n胖的:\n&#34;; $fatDirector = new PersonDirector(new PersonFatBuilder()); $fatDirector-&gt;CreatePerson(); 总结：">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="第十三章 好菜每回味不同 －－－ 建造者模式" />
+<meta property="og:description" content="第十三章 好菜每回味不同 －－－ 建造者模式 #  &lt;?php //画小人  abstract class PersonBuilder { abstract public function BuildHead(); abstract public function BuildBody(); abstract public function BuildArmLeft(); abstract public function BuildArmRight(); abstract public function BuildLegLeft(); abstract public function BuildLegRight(); } class PersonThinBuilder extends PersonBuilder { public function BuildHead() { echo &#34;小头\n&#34;; } public function BuildBody() { echo &#34;小身子\n&#34;; } public function BuildArmRight() { echo &#34;右臂\n&#34;; } public function BuildArmLeft() { echo &#34;左臂\n&#34;; } public function BuildLegLeft() { echo &#34;左腿\n&#34;; } public function BuildLegRight() { echo &#34;右腿\n&#34;; } } class PersonFatBuilder extends PersonBuilder { public function BuildHead() { echo &#34;大头\n&#34;; } public function BuildBody() { echo &#34;大身子\n&#34;; } public function BuildArmRight() { echo &#34;右臂\n&#34;; } public function BuildArmLeft() { echo &#34;左臂\n&#34;; } public function BuildLegLeft() { echo &#34;左腿\n&#34;; } public function BuildLegRight() { echo &#34;右腿\n&#34;; } } class PersonDirector { private $personBuilder; function __construct($personBuilder) { $this-&gt;personBuilder = $personBuilder; } public function CreatePerson() { $this-&gt;personBuilder-&gt;BuildHead(); $this-&gt;personBuilder-&gt;BuildBody(); $this-&gt;personBuilder-&gt;BuildArmRight(); $this-&gt;personBuilder-&gt;BuildArmLeft(); $this-&gt;personBuilder-&gt;BuildLegLeft(); $this-&gt;personBuilder-&gt;BuildLegRight(); } } //客户端代码  echo &#34;苗条的:\n&#34;; $thinDirector = new PersonDirector(new PersonThinBuilder()); $thinDirector-&gt;CreatePerson(); echo &#34;\n胖的:\n&#34;; $fatDirector = new PersonDirector(new PersonFatBuilder()); $fatDirector-&gt;CreatePerson(); 总结：" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/docs/chapter13/" />
+
+<title>第十三章 好菜每回味不同 －－－ 建造者模式 | design-patterns-by-php</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.134b70e5316650a530cb42e4e8630b2a01d532bebfc0337028211175336e4806.css" integrity="sha256-E0tw5TFmUKUwy0Lk6GMLKgHVMr6/wDNwKCERdTNuSAY=">
+<script defer src="/en.search.min.9e32b36e065fcc0a76dade0cc47798d1533be64df6d2282bd5b4fb040caf152d.js" integrity="sha256-njKzbgZfzAp22t4MxHeY0VM75k320igr1bT7BAyvFS0="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>design-patterns-by-php</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/%E5%BA%8F%E8%A8%80/" class="">序言</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter1/" class="">第一章 代码无错就是优 －－－ 简单工厂模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter2/" class="">第二章 商场促销 －－－ 策略模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter3/" class="">第三章 拍摄UFO －－－ 单一职责原则</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter4/" class="">第四章 研求职两不误 －－－ 开放－封闭原则</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter5/" class="">第五章 会修电脑不会修收音机？ －－－ 依赖倒转原则</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter6/" class="">第六章 穿什么有这么重要吗 －－－ 装饰模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter7/" class="">第七章 为别人做嫁衣 －－－ 代理模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter8/" class="">第八章 雷锋依然在人间 －－－ 工厂方法模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter9/" class="">第九章 简历复印 －－－ 原型模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter10/" class="">第十章 考题抄错会做也白搭 －－－ 模版方法模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter11/" class="">第十一章 无熟人难办事 －－－ 迪米特法则</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter12/" class="">第十二章 牛市股票还会亏钱 －－－ 外观模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter13/" class=" active">第十三章 好菜每回味不同 －－－ 建造者模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter14/" class="">第十四章 老板回来，我不知道 －－－ 观察者模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter15/" class="">第十五章 就不能不换DB吗？ －－－ 抽象工厂模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter16/" class="">第十六章 无尽加班何时休 －－－ 状态模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter17/" class="">第十七章 在NBA我需要翻译 －－－ 适配器模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter18/" class="">第十八章 如果再回到从前 －－－ 备忘录模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter19/" class="">第十九章 分公司＝一部分  －－－ 组合模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter20/" class="">第二十章 想走？可以！先买票 －－－ 迭代器模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter21/" class="">第二十一章 有些类也需要计划生育 －－－ 单例模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter22/" class="">第二十二章 手机软件何时统 －－－ 桥接模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter23/" class="">第二十三章 烤羊肉串引来的思考 －－－ 命令模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter24/" class="">第二十四章 加薪非要老总批 －－－ 职责链模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter25/" class="">第二十五章 世界需要和平 －－－ 中介者模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter26/" class="">第二十六章 项目多也别傻做 －－－ 享元模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter27/" class="">第二十七章 其实你不懂老板的心 －－－ 解释器模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter28/" class="">第二十八章 男人和女人 －－－ 访问者模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter29/" class="">第二十九章 OOTV杯超级模式大赛 －－－ 模式总结</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>第十三章 好菜每回味不同 －－－ 建造者模式</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#第十三章-好菜每回味不同--建造者模式">第十三章 好菜每回味不同 －－－ 建造者模式</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h3 id="第十三章-好菜每回味不同--建造者模式">
+  第十三章 好菜每回味不同 －－－ 建造者模式
+  <a class="anchor" href="#%e7%ac%ac%e5%8d%81%e4%b8%89%e7%ab%a0-%e5%a5%bd%e8%8f%9c%e6%af%8f%e5%9b%9e%e5%91%b3%e4%b8%8d%e5%90%8c--%e5%bb%ba%e9%80%a0%e8%80%85%e6%a8%a1%e5%bc%8f">#</a>
+</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">&lt;?php</span> 
+
+<span style="color:#75715e">//画小人
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PersonBuilder</span>
+{
+    <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">BuildHead</span>();
+    <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">BuildBody</span>();
+    <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">BuildArmLeft</span>();
+    <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">BuildArmRight</span>();
+    <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">BuildLegLeft</span>();
+    <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">BuildLegRight</span>();
+}
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PersonThinBuilder</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">PersonBuilder</span>
+{
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">BuildHead</span>()
+    {
+        <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;小头</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">BuildBody</span>()
+    {
+        <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;小身子</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">BuildArmRight</span>()
+    {
+        <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;右臂</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">BuildArmLeft</span>()
+    {
+        <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;左臂</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">BuildLegLeft</span>()
+    {
+        <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;左腿</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">BuildLegRight</span>()
+    {
+        <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;右腿</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+    }
+}
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PersonFatBuilder</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">PersonBuilder</span>
+{
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">BuildHead</span>()
+    {
+        <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;大头</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">BuildBody</span>()
+    {
+        <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;大身子</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">BuildArmRight</span>()
+    {
+        <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;右臂</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">BuildArmLeft</span>()
+    {
+        <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;左臂</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">BuildLegLeft</span>()
+    {
+        <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;左腿</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">BuildLegRight</span>()
+    {
+        <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;右腿</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+    }
+}
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PersonDirector</span>
+{
+    <span style="color:#66d9ef">private</span> $personBuilder;
+    <span style="color:#66d9ef">function</span> __construct($personBuilder)
+    {
+        $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">personBuilder</span> <span style="color:#f92672">=</span> $personBuilder;
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">CreatePerson</span>()
+    {
+        $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">personBuilder</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">BuildHead</span>();
+        $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">personBuilder</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">BuildBody</span>();
+        $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">personBuilder</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">BuildArmRight</span>();
+        $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">personBuilder</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">BuildArmLeft</span>();
+        $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">personBuilder</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">BuildLegLeft</span>();
+        $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">personBuilder</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">BuildLegRight</span>();
+    }
+}
+
+
+<span style="color:#75715e">//客户端代码
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;苗条的:</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+$thinDirector <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">PersonDirector</span>(<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">PersonThinBuilder</span>());
+$thinDirector<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">CreatePerson</span>();
+
+<span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">胖的:</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+$fatDirector <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">PersonDirector</span>(<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">PersonFatBuilder</span>());
+$fatDirector<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">CreatePerson</span>();
+</code></pre></div><p>总结：</p>
+<blockquote>
+<p><em><strong>建造者模式</strong></em>，将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示。</p>
+</blockquote>
+<blockquote>
+<p>如果我们用了建造者模式，那么用户只需要指定需要建造的类型就可以得到他们，而具体建造的过程和细节就不需要知道了。</p>
+</blockquote>
+<blockquote>
+<p>主要用于创建一些复杂的对象，这些对象内部构建间的建造顺序通常是稳定的，但对象内部的构建通畅面临着复杂的变化。</p>
+</blockquote>
+<blockquote>
+<p>建造者模式是在当创建复杂对象的算法应该独立于改对象的组成部分以及它们的装配方式时适用的模式。</p>
+</blockquote>
+<p>上一章：<a href="/docs/chapter12/">第十二章 牛市股票还会亏钱 －－－ 外观模式</a></p>
+<p>下一章：<a href="/docs/chapter14/">第十四章 老板回来，我不知道 －－－ 观察者模式</a></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#第十三章-好菜每回味不同--建造者模式">第十三章 好菜每回味不同 －－－ 建造者模式</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

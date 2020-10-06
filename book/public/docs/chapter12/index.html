@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="第十二章 牛市股票还会亏钱 －－－ 外观模式 #  &lt;?php //子系统1 class SubSystemOne { public function methodOne() { echo &#34;子系统方法1\n&#34;; } } //子系统2 class SubSystemTwo { public function methodTwo() { echo &#34;子系统方法2\n&#34;; } } //子系统3 class SubSystemThree { public function methodThree() { echo &#34;子系统方法3\n&#34;; } } //子系统4 class SubSystemFourth { public function methodFourth() { echo &#34;子系统方法4\n&#34;; } } // 外观方法 class Facade { private $systemOne; private $systemTwo; private $systemThree; private $systemFour; function __construct() { $this-&gt;systemOne = new SubSystemOne(); $this-&gt;systemTwo = new SubSystemTwo(); $this-&gt;systemThree = new SubSystemThree(); $this-&gt;systemFour = new SubSystemFourth(); } public function methodA() { echo &#34;方法A() ---\n&#34;; $this-&gt;systemOne-&gt;methodOne(); $this-&gt;systemThree-&gt;methodThree(); } public function methodB() { echo &#34;方法B() ---\n&#34;; $this-&gt;systemTwo-&gt;methodTwo(); $this-&gt;systemFour-&gt;methodFourth(); } } //客户端代码  $facade = new Facade(); $facade-&gt;methodA(); $facade-&gt;methodB(); 总结：">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="第十二章 牛市股票还会亏钱 －－－ 外观模式" />
+<meta property="og:description" content="第十二章 牛市股票还会亏钱 －－－ 外观模式 #  &lt;?php //子系统1 class SubSystemOne { public function methodOne() { echo &#34;子系统方法1\n&#34;; } } //子系统2 class SubSystemTwo { public function methodTwo() { echo &#34;子系统方法2\n&#34;; } } //子系统3 class SubSystemThree { public function methodThree() { echo &#34;子系统方法3\n&#34;; } } //子系统4 class SubSystemFourth { public function methodFourth() { echo &#34;子系统方法4\n&#34;; } } // 外观方法 class Facade { private $systemOne; private $systemTwo; private $systemThree; private $systemFour; function __construct() { $this-&gt;systemOne = new SubSystemOne(); $this-&gt;systemTwo = new SubSystemTwo(); $this-&gt;systemThree = new SubSystemThree(); $this-&gt;systemFour = new SubSystemFourth(); } public function methodA() { echo &#34;方法A() ---\n&#34;; $this-&gt;systemOne-&gt;methodOne(); $this-&gt;systemThree-&gt;methodThree(); } public function methodB() { echo &#34;方法B() ---\n&#34;; $this-&gt;systemTwo-&gt;methodTwo(); $this-&gt;systemFour-&gt;methodFourth(); } } //客户端代码  $facade = new Facade(); $facade-&gt;methodA(); $facade-&gt;methodB(); 总结：" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/docs/chapter12/" />
+
+<title>第十二章 牛市股票还会亏钱 －－－ 外观模式 | design-patterns-by-php</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.134b70e5316650a530cb42e4e8630b2a01d532bebfc0337028211175336e4806.css" integrity="sha256-E0tw5TFmUKUwy0Lk6GMLKgHVMr6/wDNwKCERdTNuSAY=">
+<script defer src="/en.search.min.9e32b36e065fcc0a76dade0cc47798d1533be64df6d2282bd5b4fb040caf152d.js" integrity="sha256-njKzbgZfzAp22t4MxHeY0VM75k320igr1bT7BAyvFS0="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>design-patterns-by-php</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/%E5%BA%8F%E8%A8%80/" class="">序言</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter1/" class="">第一章 代码无错就是优 －－－ 简单工厂模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter2/" class="">第二章 商场促销 －－－ 策略模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter3/" class="">第三章 拍摄UFO －－－ 单一职责原则</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter4/" class="">第四章 研求职两不误 －－－ 开放－封闭原则</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter5/" class="">第五章 会修电脑不会修收音机？ －－－ 依赖倒转原则</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter6/" class="">第六章 穿什么有这么重要吗 －－－ 装饰模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter7/" class="">第七章 为别人做嫁衣 －－－ 代理模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter8/" class="">第八章 雷锋依然在人间 －－－ 工厂方法模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter9/" class="">第九章 简历复印 －－－ 原型模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter10/" class="">第十章 考题抄错会做也白搭 －－－ 模版方法模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter11/" class="">第十一章 无熟人难办事 －－－ 迪米特法则</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter12/" class=" active">第十二章 牛市股票还会亏钱 －－－ 外观模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter13/" class="">第十三章 好菜每回味不同 －－－ 建造者模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter14/" class="">第十四章 老板回来，我不知道 －－－ 观察者模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter15/" class="">第十五章 就不能不换DB吗？ －－－ 抽象工厂模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter16/" class="">第十六章 无尽加班何时休 －－－ 状态模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter17/" class="">第十七章 在NBA我需要翻译 －－－ 适配器模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter18/" class="">第十八章 如果再回到从前 －－－ 备忘录模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter19/" class="">第十九章 分公司＝一部分  －－－ 组合模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter20/" class="">第二十章 想走？可以！先买票 －－－ 迭代器模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter21/" class="">第二十一章 有些类也需要计划生育 －－－ 单例模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter22/" class="">第二十二章 手机软件何时统 －－－ 桥接模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter23/" class="">第二十三章 烤羊肉串引来的思考 －－－ 命令模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter24/" class="">第二十四章 加薪非要老总批 －－－ 职责链模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter25/" class="">第二十五章 世界需要和平 －－－ 中介者模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter26/" class="">第二十六章 项目多也别傻做 －－－ 享元模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter27/" class="">第二十七章 其实你不懂老板的心 －－－ 解释器模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter28/" class="">第二十八章 男人和女人 －－－ 访问者模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter29/" class="">第二十九章 OOTV杯超级模式大赛 －－－ 模式总结</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>第十二章 牛市股票还会亏钱 －－－ 外观模式</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#第十二章-牛市股票还会亏钱--外观模式">第十二章 牛市股票还会亏钱 －－－ 外观模式</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h3 id="第十二章-牛市股票还会亏钱--外观模式">
+  第十二章 牛市股票还会亏钱 －－－ 外观模式
+  <a class="anchor" href="#%e7%ac%ac%e5%8d%81%e4%ba%8c%e7%ab%a0-%e7%89%9b%e5%b8%82%e8%82%a1%e7%a5%a8%e8%bf%98%e4%bc%9a%e4%ba%8f%e9%92%b1--%e5%a4%96%e8%a7%82%e6%a8%a1%e5%bc%8f">#</a>
+</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">&lt;?php</span> 
+
+<span style="color:#75715e">//子系统1
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SubSystemOne</span>
+{
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">methodOne</span>()
+    {
+        <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;子系统方法1</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+    }
+}
+
+<span style="color:#75715e">//子系统2
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SubSystemTwo</span>
+{
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">methodTwo</span>()
+    {
+        <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;子系统方法2</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+    }
+}
+
+<span style="color:#75715e">//子系统3
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SubSystemThree</span>
+{
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">methodThree</span>()
+    {
+        <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;子系统方法3</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+    }
+}
+
+<span style="color:#75715e">//子系统4
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SubSystemFourth</span>
+{
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">methodFourth</span>()
+    {
+        <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;子系统方法4</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+    }
+}
+
+<span style="color:#75715e">// 外观方法
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Facade</span>
+{
+    <span style="color:#66d9ef">private</span> $systemOne;
+    <span style="color:#66d9ef">private</span> $systemTwo;
+    <span style="color:#66d9ef">private</span> $systemThree;
+    <span style="color:#66d9ef">private</span> $systemFour;
+
+
+    <span style="color:#66d9ef">function</span> __construct()
+    {
+        $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">systemOne</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SubSystemOne</span>();
+        $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">systemTwo</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SubSystemTwo</span>();
+        $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">systemThree</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SubSystemThree</span>();
+        $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">systemFour</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SubSystemFourth</span>();
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">methodA</span>()
+    {
+        <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;方法A() ---</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+        $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">systemOne</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">methodOne</span>();
+        $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">systemThree</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">methodThree</span>();
+    }
+
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">methodB</span>()
+    {
+        <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;方法B() ---</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+        $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">systemTwo</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">methodTwo</span>();
+        $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">systemFour</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">methodFourth</span>();
+    }
+}
+
+<span style="color:#75715e">//客户端代码
+</span><span style="color:#75715e"></span>
+$facade <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Facade</span>();
+$facade<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">methodA</span>();
+$facade<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">methodB</span>();
+
+</code></pre></div><p>总结：</p>
+<blockquote>
+<p><em><strong>外观模式</strong></em>，为子系统中的一组接口提供一个一致的界面，此模式定义了一个高层接口，这个接口使得这一子系统更容易使用。</p>
+</blockquote>
+<blockquote>
+<p>首先，在设计初期阶段，应该要有意识的将不同的两个层分离，层与层之间建立外观Facade；其次，在开发阶段，子系统往往因为不断的重构演化而变得越来越复杂，增加外观Facade可以提供一个简单的接口，减少它们之间的依赖；另外在维护一个遗留的大型系统时，可能这个系统已经非常难以维护和扩展了，为新系统开发一个外观Facade类，来提供设计粗糙或高度复杂的遗留代码的比较清晰简单的接口，让系统与Facade对象交互，Facade与遗留代码交互所有复杂的工作</p>
+</blockquote>
+<p>上一章：<a href="/docs/chapter11/">第十一章 无熟人难办事 －－－ 迪米特法则</a></p>
+<p>下一章：<a href="/docs/chapter13/">第十三章 好菜每回味不同 －－－ 建造者模式</a></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#第十二章-牛市股票还会亏钱--外观模式">第十二章 牛市股票还会亏钱 －－－ 外观模式</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

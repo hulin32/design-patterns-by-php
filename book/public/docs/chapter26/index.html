@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="第二十六章 项目多也别傻做 －－－ 享元模式 #  class User { private $name; function __construct($name) { $this-&gt;name = $name; } public function getName() { return $this-&gt;name; } } abstract class WebSite { abstract public function use(User $user); } // 具体网站类 class ConcreteWebSite extends WebSite { private $name = &#39;&#39;; function __construct($name) { $this-&gt;name = $name; } public function use(User $user) { echo &#34;网站分类: &#34;.$this-&gt;name.&#34;用户:&#34;.$user-&gt;getName().&#34;\n&#34;; } } //网站工厂 class WebSiteFactory { private $flyweights = []; public function getWebSiteGategory($key) { if (empty($this-&gt;flyweights[$key])) { $this-&gt;flyweights[$key] = new ConcreteWebSite($key); } return $this-&gt;flyweights[$key]; } public function getWebSiteCount() { return count($this-&gt;flyweights); } } $f = new WebSiteFactory(); $fx = $f-&gt;getWebSiteGategory(&#39;产品展示&#39;); $fx-&gt;use(new User(&#39;张伟&#39;)); $fy = $f-&gt;getWebSiteGategory(&#39;产品展示&#39;); $fy-&gt;use(new User(&#39;王伟&#39;)); $fz = $f-&gt;getWebSiteGategory(&#39;产品展示&#39;); $fz-&gt;use(new User(&#39;王芳&#39;)); $fl = $f-&gt;getWebSiteGategory(&#39;博客&#39;); $fl-&gt;use(new User(&#39;李伟&#39;)); $fm = $f-&gt;getWebSiteGategory(&#39;博客&#39;); $fm-&gt;use(new User(&#39;王秀英&#39;)); $fn = $f-&gt;getWebSiteGategory(&#39;博客&#39;); $fn-&gt;use(new User(&#39;李秀英&#39;)); echo &#34;网站分类总数:&#34;.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="第二十六章 项目多也别傻做 －－－ 享元模式" />
+<meta property="og:description" content="第二十六章 项目多也别傻做 －－－ 享元模式 #  class User { private $name; function __construct($name) { $this-&gt;name = $name; } public function getName() { return $this-&gt;name; } } abstract class WebSite { abstract public function use(User $user); } // 具体网站类 class ConcreteWebSite extends WebSite { private $name = &#39;&#39;; function __construct($name) { $this-&gt;name = $name; } public function use(User $user) { echo &#34;网站分类: &#34;.$this-&gt;name.&#34;用户:&#34;.$user-&gt;getName().&#34;\n&#34;; } } //网站工厂 class WebSiteFactory { private $flyweights = []; public function getWebSiteGategory($key) { if (empty($this-&gt;flyweights[$key])) { $this-&gt;flyweights[$key] = new ConcreteWebSite($key); } return $this-&gt;flyweights[$key]; } public function getWebSiteCount() { return count($this-&gt;flyweights); } } $f = new WebSiteFactory(); $fx = $f-&gt;getWebSiteGategory(&#39;产品展示&#39;); $fx-&gt;use(new User(&#39;张伟&#39;)); $fy = $f-&gt;getWebSiteGategory(&#39;产品展示&#39;); $fy-&gt;use(new User(&#39;王伟&#39;)); $fz = $f-&gt;getWebSiteGategory(&#39;产品展示&#39;); $fz-&gt;use(new User(&#39;王芳&#39;)); $fl = $f-&gt;getWebSiteGategory(&#39;博客&#39;); $fl-&gt;use(new User(&#39;李伟&#39;)); $fm = $f-&gt;getWebSiteGategory(&#39;博客&#39;); $fm-&gt;use(new User(&#39;王秀英&#39;)); $fn = $f-&gt;getWebSiteGategory(&#39;博客&#39;); $fn-&gt;use(new User(&#39;李秀英&#39;)); echo &#34;网站分类总数:&#34;." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/docs/chapter26/" />
+
+<title>第二十六章 项目多也别傻做 －－－ 享元模式 | design-patterns-by-php</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.134b70e5316650a530cb42e4e8630b2a01d532bebfc0337028211175336e4806.css" integrity="sha256-E0tw5TFmUKUwy0Lk6GMLKgHVMr6/wDNwKCERdTNuSAY=">
+<script defer src="/en.search.min.9e32b36e065fcc0a76dade0cc47798d1533be64df6d2282bd5b4fb040caf152d.js" integrity="sha256-njKzbgZfzAp22t4MxHeY0VM75k320igr1bT7BAyvFS0="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>design-patterns-by-php</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/%E5%BA%8F%E8%A8%80/" class="">序言</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter1/" class="">第一章 代码无错就是优 －－－ 简单工厂模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter2/" class="">第二章 商场促销 －－－ 策略模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter3/" class="">第三章 拍摄UFO －－－ 单一职责原则</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter4/" class="">第四章 研求职两不误 －－－ 开放－封闭原则</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter5/" class="">第五章 会修电脑不会修收音机？ －－－ 依赖倒转原则</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter6/" class="">第六章 穿什么有这么重要吗 －－－ 装饰模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter7/" class="">第七章 为别人做嫁衣 －－－ 代理模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter8/" class="">第八章 雷锋依然在人间 －－－ 工厂方法模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter9/" class="">第九章 简历复印 －－－ 原型模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter10/" class="">第十章 考题抄错会做也白搭 －－－ 模版方法模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter11/" class="">第十一章 无熟人难办事 －－－ 迪米特法则</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter12/" class="">第十二章 牛市股票还会亏钱 －－－ 外观模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter13/" class="">第十三章 好菜每回味不同 －－－ 建造者模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter14/" class="">第十四章 老板回来，我不知道 －－－ 观察者模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter15/" class="">第十五章 就不能不换DB吗？ －－－ 抽象工厂模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter16/" class="">第十六章 无尽加班何时休 －－－ 状态模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter17/" class="">第十七章 在NBA我需要翻译 －－－ 适配器模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter18/" class="">第十八章 如果再回到从前 －－－ 备忘录模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter19/" class="">第十九章 分公司＝一部分  －－－ 组合模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter20/" class="">第二十章 想走？可以！先买票 －－－ 迭代器模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter21/" class="">第二十一章 有些类也需要计划生育 －－－ 单例模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter22/" class="">第二十二章 手机软件何时统 －－－ 桥接模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter23/" class="">第二十三章 烤羊肉串引来的思考 －－－ 命令模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter24/" class="">第二十四章 加薪非要老总批 －－－ 职责链模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter25/" class="">第二十五章 世界需要和平 －－－ 中介者模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter26/" class=" active">第二十六章 项目多也别傻做 －－－ 享元模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter27/" class="">第二十七章 其实你不懂老板的心 －－－ 解释器模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter28/" class="">第二十八章 男人和女人 －－－ 访问者模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://example.org/docs/chapter29/" class="">第二十九章 OOTV杯超级模式大赛 －－－ 模式总结</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>第二十六章 项目多也别傻做 －－－ 享元模式</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#第二十六章-项目多也别傻做--享元模式">第二十六章 项目多也别傻做 －－－ 享元模式</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h3 id="第二十六章-项目多也别傻做--享元模式">
+  第二十六章 项目多也别傻做 －－－ 享元模式
+  <a class="anchor" href="#%e7%ac%ac%e4%ba%8c%e5%8d%81%e5%85%ad%e7%ab%a0-%e9%a1%b9%e7%9b%ae%e5%a4%9a%e4%b9%9f%e5%88%ab%e5%82%bb%e5%81%9a--%e4%ba%ab%e5%85%83%e6%a8%a1%e5%bc%8f">#</a>
+</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">class User
+{
+    private $name;
+    function __construct($name)
+    {
+        $this-&gt;name = $name;
+    }
+
+    public function getName()
+    {
+        return $this-&gt;name;
+    }
+}
+
+abstract class WebSite
+{
+    abstract public function use(User $user);
+}
+
+// 具体网站类
+class ConcreteWebSite extends WebSite
+{
+    private $name = &#39;&#39;;
+
+    function __construct($name)
+    {
+        $this-&gt;name = $name;
+    }
+
+    public function use(User $user)
+    {
+        echo &#34;网站分类: &#34;.$this-&gt;name.&#34;用户:&#34;.$user-&gt;getName().&#34;\n&#34;;
+    }
+}
+
+//网站工厂
+class WebSiteFactory
+{
+    private $flyweights = [];
+
+    public function getWebSiteGategory($key)
+    {
+        if (empty($this-&gt;flyweights[$key])) {
+            $this-&gt;flyweights[$key] = new ConcreteWebSite($key);
+        }
+        return $this-&gt;flyweights[$key];
+    }
+
+
+    public function getWebSiteCount()
+    {
+        return count($this-&gt;flyweights);
+    }
+}
+
+$f = new WebSiteFactory();
+$fx = $f-&gt;getWebSiteGategory(&#39;产品展示&#39;);
+$fx-&gt;use(new User(&#39;张伟&#39;));
+
+$fy = $f-&gt;getWebSiteGategory(&#39;产品展示&#39;);
+$fy-&gt;use(new User(&#39;王伟&#39;));
+
+$fz = $f-&gt;getWebSiteGategory(&#39;产品展示&#39;);
+$fz-&gt;use(new User(&#39;王芳&#39;));
+
+$fl = $f-&gt;getWebSiteGategory(&#39;博客&#39;);
+$fl-&gt;use(new User(&#39;李伟&#39;));
+
+$fm = $f-&gt;getWebSiteGategory(&#39;博客&#39;);
+$fm-&gt;use(new User(&#39;王秀英&#39;));
+
+$fn = $f-&gt;getWebSiteGategory(&#39;博客&#39;);
+$fn-&gt;use(new User(&#39;李秀英&#39;));
+
+echo &#34;网站分类总数:&#34;.$f-&gt;getWebSiteCount().&#34;\n&#34;;
+</code></pre></div><p>总结</p>
+<blockquote>
+<p><em><strong>享原模式</strong></em> 运用共享技术有效地支持大量细粒度的对象</p>
+</blockquote>
+<blockquote>
+<p>享原模式可以避免大量非常类似类的开销。在程序设计中，有时需要生成大量细粒度的类实例来表示数据。如果能发现这些实例除了几个参数外基本上都是相同的，有时就能够受大幅度地减少需要实例化的类的数量。如果能把参数移到类实例的外面，在方法调用时将它们传递进来，就可以通过共享大幅度地减少单个实例的数目。</p>
+</blockquote>
+<blockquote>
+<p>如果一个应用程序使用了大量的对象，而大量的这些对象造成了很大的存储开销时就应该考虑使用；还有就是对象的大多数状态可以外部状态，如果删除对象的外部状态，那么可以用相对较少的共享对象取代很多组对象，此时可以考虑使用享原模式。</p>
+</blockquote>
+<p>上一章：<a href="/docs/chapter25/">第二十五章 世界需要和平 －－－ 中介者模式</a></p>
+<p>下一章：<a href="/docs/chapter27/">第二十七章 其实你不懂老板的心 －－－ 解释器模式</a></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#第二十六章-项目多也别傻做--享元模式">第二十六章 项目多也别傻做 －－－ 享元模式</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
